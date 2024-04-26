@@ -19,8 +19,11 @@
             }
         }
         public function executeRequete($query){
-            if (!$query->execute())
+            if (!$query->execute()){
+                // print_r($query->errorInfo());
+                // die;
                 return 0;
+            }
             else
                 return 1;
         }

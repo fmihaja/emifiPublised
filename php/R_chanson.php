@@ -2,6 +2,7 @@
     //DELL SISA
     require "./class/Chanson.php";
     include_once "./fonction/typeMethode.php";
+    include_once "./fonction/ecritureSurNotif.php";
     $chanson=new Chanson();
     switch ($method) {
         case "POST":
@@ -25,6 +26,10 @@
                                 $message="Insertion echouer";
                             else
                                 $message="Insertion réussi";
+                                $request=$chanson->selectLastId();
+                                $infos="Id:".$request["id_ch"].",Titre:".$request["titre"];
+                                $idCh=$request["id_ch"];
+                                ecritureNotifUserCh("insert",$infos,0,$idCh);
                         }
                     }
                 }

@@ -50,7 +50,12 @@
         }
         public function selectOne($idCh){
             $bd=$this->bd;
-            $query=$bd->connect()->query("SELECT id_ch FROM chansons WHERE id_ch=$idCh");
+            $query=$bd->connect()->query("SELECT * FROM chansons WHERE id_ch=$idCh");
+            return $bd->queryRequeteOne($query);
+        }
+        public function selectLastId(){
+            $bd=$this->bd;
+            $query=$bd->connect()->query("SELECT * FROM chansons ORDER BY id_ch DESC LIMIT 1");
             return $bd->queryRequeteOne($query);
         }
         public function verifDoublons($titre){
