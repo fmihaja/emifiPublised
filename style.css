@@ -1,0 +1,79 @@
+.titre{
+    margin-left: 15px;
+    margin-top: 10px;
+    color: rgb(4, 30, 145);
+}
+.titreMusic{
+    color: rgb(4, 30, 145);
+}
+.posMargIcoMusic{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* .card:hover{
+    background-color:  rgb(79, 164, 243);;
+} */
+.card{
+    cursor: pointer;
+    height: 325px;
+    width: 250px;
+}
+.card:hover{
+    background-color: rgb(79, 164, 243);
+}
+.card:hover > .card-body{
+    background-color: rgba(0, 0, 0,0.5);
+    color: white;
+}
+.card-body{
+    background-color: rgba(79, 164, 243, 0.5);
+}
+
+.btnLiker{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    background-color: transparent;
+    border: none;
+}
+.tailleReaction{
+    width: 50px;
+    height: 100%;
+}
+.containerMusic{
+    flex-wrap: nowrap;
+    width: 91%;
+    overflow-x: hidden;
+    padding: 10px;
+}
+.navSticky{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+/*logo emifi*/
+.navbar-brand .e{
+    color: rgb(4, 30, 145);
+    transform: rotate(60deg);
+}
+.mifi{
+    color: rgb(79, 164, 243);
+}
+.listMenu{
+    cursor: pointer;
+}
+
+.list-group{
+    margin-inline: 0;
+}
+.tailleControl{
+    width: 60px;
+}
+.controlMusic{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.infosMusic{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
