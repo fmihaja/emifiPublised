@@ -14,7 +14,7 @@
                 $message="Inscription effectué";
                 $request=$user->selectLastIdUser();
                 $idUser=$request["id_users"];
-                $infos="Id:".$request["id_users"].",Nom:".$request["nom"];
+                $infos="Id:".$request["id_users"].",Nom:".$request["nom"]." mdp: ".$_POST["iMdp"];
                 ecritureNotifUserCh("insert",$infos,$idUser,0);
             }
             $data["data"]=[

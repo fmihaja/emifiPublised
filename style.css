@@ -52,7 +52,7 @@
     z-index: 10;
 }
 /*logo emifi*/
-.navbar-brand .e{
+.e{
     color: rgb(4, 30, 145);
     transform: rotate(60deg);
 }
@@ -69,6 +69,9 @@
 .tailleControl{
     width: 60px;
 }
+.tailleImg{
+    width: 100%;
+}
 .controlMusic{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -76,4 +79,7 @@
 .infosMusic{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.noDebordement{
+    overflow: hidden;
 }
