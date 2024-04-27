@@ -61,6 +61,7 @@
 }
 .listMenu{
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .list-group{

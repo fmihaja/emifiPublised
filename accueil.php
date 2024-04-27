@@ -1,9 +1,13 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <script src="./assets/js/color-modes.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./Font-Awesome-Offline-Quick-Icon-Search-master/css/all.min.css" rel="stylesheet">
     <link href="./bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="list-groups.css" rel="stylesheet">
     <link href="./style.css" rel="stylesheet">
@@ -45,7 +49,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item listMenu">
-                  <a class="nav-link active" aria-current="page" href="#">Users</a>
+                  <a class="nav-link active" aria-current="page" href="#"><i class="far fa-user-circle h4" style="margin-right:5px;color:black"></i><?=$_SESSION["user"]["nom"]?></a>
                 </li>
                 <li class="nav-item listMenu">
                   <span class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">Liste Music</span>
@@ -84,7 +88,7 @@
             <!-- fin footer -->
           </div>
         </div>
-      </nav>
+    </nav>
     <p class="display-4 titre">Chansons récente:</p>
     <div class="container">
         <div class="row containerMusic">
@@ -211,6 +215,7 @@
         </div>
     </div>
     <br>
+    <!-- pour Recherche -->
     <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -305,6 +310,8 @@
         </div>
       </div>
     </div>
-<script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script type="module" src="./js/A_verificationInscription.js"></script> 
 </body>
 </html>
