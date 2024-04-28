@@ -3,7 +3,8 @@
     margin-top: 10px;
     color: rgb(4, 30, 145);
 }
-.titreMusic{
+/*any@lecture*/
+.titreMusicLecture{
     color: rgb(4, 30, 145);
 }
 .posMargIcoMusic{
@@ -31,15 +32,12 @@
 
 .btnLiker{
     position: absolute;
-    right: 10px;
+    right: 0;
     bottom: 5px;
     background-color: transparent;
     border: none;
 }
-.tailleReaction{
-    width: 50px;
-    height: 100%;
-}
+
 .containerMusic{
     flex-wrap: nowrap;
     width: 91%;
@@ -73,6 +71,10 @@
 .tailleImg{
     width: 100%;
 }
+.tailleReaction{
+    width: 40px;
+    height: 100%;
+}
 .controlMusic{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -81,6 +83,11 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.noDebordement{
+/* .noDebordement{
+    overflow: hidden;
+} */
+.titreMusic{
+    white-space: nowrap;
+    width: 210px;
     overflow: hidden;
 }

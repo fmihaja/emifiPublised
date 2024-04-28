@@ -32,7 +32,7 @@
         <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
       </symbol>
     </svg>
-    <!-- fin initiation svg logo -->
+    <!-- fin initiation svg logo asina icone -->
     <nav class="navbar bg-body-tertiary navSticky" aria-label="Light offcanvas navbar">
         <div class="container-fluid">
           <a class="navbar-brand">
@@ -49,7 +49,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item listMenu">
-                  <a class="nav-link active" aria-current="page" href="#"><i class="far fa-user-circle h4" style="margin-right:5px;color:black"></i><?=$_SESSION["user"]["nom"]?></a>
+                  <a class="nav-link active" aria-current="page" href="#"><?=$_SESSION["user"]["nom"]?></a>
                 </li>
                 <li class="nav-item listMenu">
                   <span class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">Liste Music</span>
@@ -88,72 +88,11 @@
             <!-- fin footer -->
           </div>
         </div>
-    </nav>
+      </nav>
     <p class="display-4 titre">Chansons récente:</p>
     <div class="container">
-        <div class="row containerMusic">
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title">Titre 1</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore.svg" alt="" class="tailleReaction">
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title">Titre 2</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title">Titre 3</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title">Titre 4</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title">Titre 5</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-                </div>
-              </div>
-            </div>
+        <div class="row containerMusic" id="affichageChansons">
+            
         </div>
     </div>
     <p class="display-4 titre">Chansons adorer:</p>
@@ -190,7 +129,7 @@
               <div class="card">
                 <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
                 <div class="card-body">
-                  <h5 class="card-title">Titre 3</h5>
+                  <h5 class="card-title titre">Titre 3</h5>
                   <div class="btn btn-primary btnLiker">
                     <img src="./icone/adore1.svg" alt="" class="tailleReaction">
                   </div>
@@ -215,7 +154,6 @@
         </div>
     </div>
     <br>
-    <!-- pour Recherche -->
     <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -246,7 +184,7 @@
               </div>
               <div class="container infosMusic">
                 <div class="row">
-                  <p class="h3 titreMusic">Titre 1</p>
+                  <p class="h3 titreMusicLecture">Titre 1</p>
                 </div>
                 <div class="row">
                     <input type="range" class="form-range" name="" id="">
@@ -309,9 +247,9 @@
           </div>
         </div>
       </div>
-    </div>
-    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/jquery-3.7.1.js"></script>
-    <script type="module" src="./js/A_verificationInscription.js"></script> 
+    </div> 
+  <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./js/jquery-3.7.1.js"></script>
+  <script type="module" src="./js/A_affichageMusic.js"></script>
 </body>
 </html>

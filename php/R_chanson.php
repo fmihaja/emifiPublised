@@ -41,9 +41,7 @@
         break;
         case "GET":
             $request=$chanson->selectAll();
-            $data["data"]=[
-                $request
-            ];
+            $data["data"]=$request;
             echo json_encode($data);
         break;  
         case "PUT":
