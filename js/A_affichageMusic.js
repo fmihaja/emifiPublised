@@ -44,12 +44,12 @@ $.ajax({
             if ($.inArray(item.id_ch,idChReact)!==-1){
                 imgDislike.show();
                 imgLike.hide();
+                $("#affichageMusicAdorer").append(divCol.clone()); 
             }
             else{
                 imgDislike.hide();
                 imgLike.show();
             }
-            
             $("#affichageChansons").append(divCol);
         });
     }

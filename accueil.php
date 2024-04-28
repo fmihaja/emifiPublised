@@ -97,60 +97,8 @@
     </div>
     <p class="display-4 titre">Chansons adorer:</p>
     <div class="container">
-        <div class="row containerMusic">
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg> -->
-                <div class="card-body">
-                  <h5 class="card-title">Titre 1</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore1.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title">Titre 2</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore1.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title titre">Titre 3</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore1.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card">
-                <img src="./icone/audio.svg" alt="" class="bd-placeholder-img card-img-top posMargIcoMusic" width="100%" height="180" >
-                <div class="card-body">
-                  <h5 class="card-title">Titre 4</h5>
-                  <div class="btn btn-primary btnLiker">
-                    <img src="./icone/adore1.svg" alt="" class="tailleReaction">
-                  </div>
-                  <!-- <div class="btn btn-primary btnDisliker">Go somewhere</div> -->
-
-                </div>
-              </div>
-            </div>
+        <div class="row containerMusic" id="affichageMusicAdorer">
+            
         </div>
     </div>
     <br>
