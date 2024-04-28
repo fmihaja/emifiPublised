@@ -36,7 +36,7 @@
     <nav class="navbar bg-body-tertiary navSticky" aria-label="Light offcanvas navbar">
         <div class="container-fluid">
           <a class="navbar-brand">
-            <span class="h1 e">E</span><span class="h3 mifi">MIFI</span>
+            <span class="h3 e">E</span><span class="h5 mifi">MIFI</span><span class="h3" style="margin-left:5px"><i class="fas fa-headphones-alt"></i></span>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item listMenu">
-                  <a class="nav-link active" aria-current="page" href="#"><?=$_SESSION["user"]["nom"]?></a>
+                  <a class="nav-link active" aria-current="page" href="#"><span class="h3" style="margin-right:5px"><i class="far fa-user-circle"></i></span><?=$_SESSION["user"]["nom"]?></a>
                 </li>
                 <li class="nav-item listMenu">
                   <span class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">Liste Music</span>
