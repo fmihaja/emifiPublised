@@ -42,8 +42,8 @@
         break;
         case "GET":
             session_start();
-            // $idUser=$_SESSION["user"]["id"];
-            $idUser=26;
+            $idUser=$_SESSION["user"]["id"];
+            // $idUser=26;
             $reaction=new Reaction();
             $request=$chanson->selectAll();
             $requestReact=$reaction->selectAllChansons($idUser);
