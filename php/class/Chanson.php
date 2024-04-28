@@ -45,7 +45,7 @@
         }
         public function selectAll(){
             $bd=$this->bd;
-            $query=$bd->connect()->query("SELECT * FROM chansons");
+            $query=$bd->connect()->query("SELECT * FROM chansons ORDER BY id_ch DESC");
             return $bd->queryRequeteAll($query);
         }
         public function selectOne($idCh){

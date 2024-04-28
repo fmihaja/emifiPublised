@@ -38,3 +38,6 @@ Nouvelle compte:
 Nouvelle compte:
 	28-04-2024 07:19:14
 	Infos:Id:93,Nom: mdp: 1234admin.
+Nouvelle compte:
+	28-04-2024 09:56:49
+	Infos:Id:95,Nom:admin mdp: 123456.

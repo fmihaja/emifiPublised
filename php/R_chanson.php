@@ -1,6 +1,7 @@
 <?php
     //DELL SISA
     require "./class/Chanson.php";
+    require "./class/Reaction.php";
     include_once "./fonction/typeMethode.php";
     include_once "./fonction/ecritureSurNotif.php";
     $chanson=new Chanson();
@@ -40,8 +41,16 @@
             echo json_encode($data);
         break;
         case "GET":
+            session_start();
+            $idUser=$_SESSION["user"]["id"];
+            $reaction=new Reaction();
             $request=$chanson->selectAll();
-            $data["data"]=$request;
+            $requestReact=$reaction->selectAllChansons($idUser);
+            $allIdChrequestReact=array_column($requestReact,"id_ch");
+            $data=[
+                "sansReaction"=>$request,
+                "avecReaction"=>$allIdChrequestReact
+            ];
             echo json_encode($data);
         break;  
         case "PUT":
