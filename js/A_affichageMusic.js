@@ -1,3 +1,4 @@
+import * as reaction from "./A_reaction.js";
 var icoMusic="./icone/audio.svg";
 var icoLike="./icone/adore.svg";
 var icoDislike="./icone/adore1.svg";
@@ -9,14 +10,15 @@ $.ajax({
         var dataSansReaction=data.sansReaction;
         var dataAvecReaction=data.avecReaction;
         var idChReact=[];
+        //on met dans un tableau tout les music deja liker
         $.each(dataAvecReaction, (index,item)=> { 
              idChReact.push(item);
         });
-        console.log(idChReact);
+        //creation de liste music 
         $.each(dataSansReaction, (index,item)=> { 
-            var divCol=$('<div>').attr({
+            var divCol=$('<label>').attr({
                 "class":"col",
-                "id":item.id_ch
+                "for":item.id_ch
             });
             var imgLike=$("<img>").attr({
                 "src":icoLike,
@@ -42,6 +44,7 @@ $.ajax({
             divCard.append(imgMusic,divCardBody);
             divCol.append(divCard);
             if ($.inArray(item.id_ch,idChReact)!==-1){
+                //affichage music liker
                 imgDislike.show();
                 imgLike.hide();
                 $("#affichageMusicAdorer").append(divCol.clone()); 
@@ -50,7 +53,14 @@ $.ajax({
                 imgDislike.hide();
                 imgLike.show();
             }
+            //affichage music
             $("#affichageChansons").append(divCol);
+        });
+        $.each($(".like"), (index, item) => { 
+            $(item).on("click",()=>{
+                var id=$(".col:eq("+index+")").attr("for");
+                reaction.like(id,index);
+            })
         });
     }
 });
