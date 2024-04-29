@@ -92,13 +92,13 @@
     <p class="display-4 titre">Chansons récente:</p>
     <div class="container">
         <div class="row containerMusic" id="affichageChansons">
-            
+            <!-- affiche tout les music -->
         </div>
     </div>
     <p class="display-4 titre">Chansons adorer:</p>
     <div class="container">
         <div class="row containerMusic" id="affichageMusicAdorer">
-            
+            <!-- affiche les chansons adorer -->
         </div>
     </div>
     <br>
@@ -151,12 +151,13 @@
               </div>   
               <div class="row">
                 <div class="col">
-                  <div class="list-group list-group-checkable d-grid gap-2 border-0">
-                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios1" value="" checked>
-                    <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
+                  <div class="list-group list-group-checkable d-grid gap-2 border-0" id="listeMusic">
+                    <!-- <input class="list-group-item-check pe-none" type="radio" name="gpMusic" id="66" value="ok"> -->
+                    <!-- <label class="list-group-item rounded-3 py-3" for="66">
                       First radio
                       <span class="d-block small opacity-50">With support text underneath to add more detail</span>
-                    </label>
+                    </label> -->
+                    
                   </div>
                 </div>
 

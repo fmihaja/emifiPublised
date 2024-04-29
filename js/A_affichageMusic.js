@@ -15,7 +15,9 @@ $.ajax({
              idChReact.push(item);
         });
         $.each(dataSansReaction, (index,item)=> { 
-            //creation de liste music 
+            /*
+                creation de liste music
+            */
             var divCol=$('<label>').attr({
                 "class":"col",
                 "for":item.id_ch
@@ -58,7 +60,30 @@ $.ajax({
             var divColClone=divCol.clone();
             // affiche l'element adorer
             divColClone.toggle($(".like:eq("+index+")").is(":hidden"));
-            $("#affichageMusicAdorer").append(divColClone);            
+            $("#affichageMusicAdorer").append(divColClone);
+            /*
+                Liste Music
+            */
+            var rbButton=$("<input>").attr({
+                "type":"radio",
+                "class":"list-group-item-check pe-none",
+                "name":"gpMusic",
+                "id":item.id_ch,
+                "value":item.titre
+                // "name":
+            });
+            var lbGpMusic=$("<label>").attr({
+                "class":"list-group-item rounded-3 py-3",
+                "for":item.id_ch
+            });
+            lbGpMusic.text(item.titre);
+            var spanSousTitre=$("<span>").attr({
+                "class":"d-block small opacity-50"
+            });
+            // spanSousTitre.text();
+            lbGpMusic.append(spanSousTitre);
+            $("#listeMusic").append(rbButton,lbGpMusic);
+                   
         });
         //Reaction
         $.each($(".like"), (index, item) => { 
