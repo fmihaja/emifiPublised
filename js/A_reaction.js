@@ -8,8 +8,7 @@ export function like(idChClicker,index){
         dataType: "json",
         success: (data)=> {
             alert(data.data.message);
-            $(".like:eq("+index+"),.dislike:eq("+index+")").toggle();
-            $("#affichageMusicAdorer > .dislike").eq(index).show()
+            $(".col[for="+idChClicker+"]").find(".card>.card-body>.btnLiker").find(".like,.dislike").toggle();
             $("#affichageMusicAdorer > .col").eq(index).show();
         
         }
@@ -25,7 +24,8 @@ export function dislike(idChClicker,index){
         success: (data)=> {
             var msg=data.data.message;
             if (msg=="dislike executé"){
-                $(".like:eq("+index+"),.dislike:eq("+index+")").toggle();
+                $(".col[for="+idChClicker+"]").find(".card>.card-body>.btnLiker").find(".like,.dislike").toggle();
+                // $(".like:eq("+index+"),.dislike:eq("+index+")").toggle();
                 $("#affichageMusicAdorer > .col[for="+idChClicker+"]").toggle();
                 
             }
