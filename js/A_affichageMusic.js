@@ -39,27 +39,41 @@ $.ajax({
             divCardTitle.text(item.titre);
             var divBtn=$("<div>").attr("class","btn btn-primary btnLiker");
             var divCard=$("<div>").attr("class","card");
-            divBtn.append(imgLike,imgDislike);
-            divCardBody.append(divCardTitle,divBtn);
-            divCard.append(imgMusic,divCardBody);
-            divCol.append(divCard);
             if ($.inArray(item.id_ch,idChReact)!==-1){
                 //affichage music liker
                 imgDislike.show();
                 imgLike.hide();
-                $("#affichageMusicAdorer").append(divCol.clone()); 
+
             }
             else{
                 imgDislike.hide();
                 imgLike.show();
             }
+            divBtn.append(imgLike,imgDislike);
+            divCardBody.append(divCardTitle,divBtn);
+            divCard.append(imgMusic,divCardBody);
+            divCol.append(divCard);
             //affichage music
-            $("#affichageChansons").append(divCol);
+            $("#affichageChansons").append(divCol).show();
+            var divColClone=divCol.clone();
+            divColClone.toggle($(".like:eq("+index+")").is(":hidden"));
+            $("#affichageMusicAdorer").append(divColClone);
+            // Ajouter l'élément cloné (peut être caché) à #affichageMusicAdorer
+            
+            
+            
+            
         });
         $.each($(".like"), (index, item) => { 
             $(item).on("click",()=>{
                 var id=$(".col:eq("+index+")").attr("for");
                 reaction.like(id,index);
+            })
+        });
+        $.each($(".dislike"), (index, item) => { 
+            $(item).on("click",()=>{
+                var id=$(".col:eq("+index+")").attr("for");
+                reaction.dislike(id,index);
             })
         });
     }

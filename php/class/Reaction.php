@@ -12,7 +12,7 @@
             $query->bindValue(":idCh",$idCh,PDO::PARAM_STR);
             return $bd->executeRequete($query);
         }
-        public function enleverReactAdorer($idUser,$idCh){
+        public function delReactAdorer($idUser,$idCh){
             $bd=$this->bd;
             $query=$bd->connect()->prepare("DELETE FROM reaction WHERE id_chanson=:idCh AND id_user=:idUser");
             $query->bindValue(":idUser",$idUser,PDO::PARAM_STR);

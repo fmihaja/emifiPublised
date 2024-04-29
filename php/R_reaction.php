@@ -35,8 +35,27 @@
                 echo json_encode($data);
             break;
             case "DELETE":
-                $data=json_decode(file_get_contents("php://input",true));
-                ecritureNotifReact("dislike",$idUser,$idCh);          
+                //enleve le json
+                $dataInput=json_decode(file_get_contents("php://input",true));
+                //accede au tableau qui a idCh dans le fichier json
+                $idCh=$dataInput->idCh;
+                if ($reaction->delReactAdorer($idUser,$idCh)!=1)
+                    $message="dislike non executé";
+                else{
+                    $message="dislike executé";
+                    ecritureNotifReact("dislike",$idUser,$idCh);          
+                }  
+                $data["data"]=[
+                    "message"=>$message
+                ];
+                
+                echo json_encode($data);
+            break;
+            default:
+                $data=[
+                    "erreur"=>"erreur"
+                ];
+                echo json_encode($data);
             break;
         }
     }
