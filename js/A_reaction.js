@@ -7,10 +7,18 @@ export function like(idChClicker,index){
         },
         dataType: "json",
         success: (data)=> {
-            alert(data.data.message);
-            $(".col[for="+idChClicker+"]").find(".card>.card-body>.btnLiker").find(".like,.dislike").toggle();
-            $("#affichageMusicAdorer > .col").eq(index).show();
-        
+            // alert(data.data.message);
+            var msg=data.data.message;
+            if (msg=="reaction executé"){
+                $(".col[for="+idChClicker+"]").find(".card>.card-body>.btnLiker").find(".like,.dislike").toggle();
+                $("#affichageMusicAdorer > .col").eq(index).show();
+            }
+            else
+                alert(data.data.message);
+        },
+        error:(e)=>{
+            alert("Vous êtes actuelment hors ligne")
+            console.log(e.responseText);
         }
     });
 }
@@ -25,13 +33,14 @@ export function dislike(idChClicker,index){
             var msg=data.data.message;
             if (msg=="dislike executé"){
                 $(".col[for="+idChClicker+"]").find(".card>.card-body>.btnLiker").find(".like,.dislike").toggle();
-                // $(".like:eq("+index+"),.dislike:eq("+index+")").toggle();
-                $("#affichageMusicAdorer > .col[for="+idChClicker+"]").toggle();
-                
+                $("#affichageMusicAdorer > .col[for="+idChClicker+"]").toggle(); 
             }
-            alert(msg);
+            else
+                alert(data.data.message);
+            // alert(msg);
         },
         error:(e)=>{
+            alert("Vous êtes actuelment hors ligne")
             console.log(e.responseText);
         }
     });

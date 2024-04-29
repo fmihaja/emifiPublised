@@ -114,17 +114,17 @@
               <div class="container">
                 <div class="row">
                     <form class="col-md-8" role="search">
-                      <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                      <input type="search" class="form-control" id="recherche" placeholder="Search..." aria-label="Search">
                     </form>
                     <div class="col-md-2">
                       <div class="dropdown">
-                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" id="typeFiltre" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Filtrage
                         </button>
                         <ul class="dropdown-menu">
                           <li><h6 class="dropdown-header">Choisir filtre</h6></li>
-                          <li><a class="dropdown-item" href="#">Adorer</a></li>
-                          <li><a class="dropdown-item" href="#">Aucun</a></li>
+                          <li><span class="dropdown-item" id="filtreAdorer" href="#">Adorer</span></li>
+                          <li><span class="dropdown-item" id="filtreAucun" href="#">Aucun</span></li>
                         </ul>
                       </div>
                     </div>
@@ -156,29 +156,6 @@
                     <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
                       First radio
                       <span class="d-block small opacity-50">With support text underneath to add more detail</span>
-                    </label>
-                
-                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
-                    <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios2">
-                      Second radio
-                      <span class="d-block small opacity-50">Some other text goes here</span>
-                    </label>
-                
-                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios4" value="">
-                    <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios4">
-                      Third radio
-                      <span class="d-block small opacity-50">And we end with another snippet of text</span>
-                    </label>
-                
-                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios5" value="">
-                    <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios5">
-                      Third radio
-                      <span class="d-block small opacity-50">And we end with another snippet of text</span>
-                    </label>
-                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios6" value="">
-                    <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios6">
-                      Third radio
-                      <span class="d-block small opacity-50">And we end with another snippet of text</span>
                     </label>
                   </div>
                 </div>

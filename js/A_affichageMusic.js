@@ -14,8 +14,8 @@ $.ajax({
         $.each(dataAvecReaction, (index,item)=> { 
              idChReact.push(item);
         });
-        //creation de liste music 
         $.each(dataSansReaction, (index,item)=> { 
+            //creation de liste music 
             var divCol=$('<label>').attr({
                 "class":"col",
                 "for":item.id_ch
@@ -56,14 +56,11 @@ $.ajax({
             //affichage music
             $("#affichageChansons").append(divCol).show();
             var divColClone=divCol.clone();
+            // affiche l'element adorer
             divColClone.toggle($(".like:eq("+index+")").is(":hidden"));
-            $("#affichageMusicAdorer").append(divColClone);
-            // Ajouter l'élément cloné (peut être caché) à #affichageMusicAdorer
-            
-            
-            
-            
+            $("#affichageMusicAdorer").append(divColClone);            
         });
+        //Reaction
         $.each($(".like"), (index, item) => { 
             $(item).on("click",()=>{
                 var id=$(".col:eq("+index+")").attr("for");
