@@ -4,9 +4,9 @@
     color: rgb(4, 30, 145);
 }
 /*any@lecture*/
-.titreMusicLecture{
+/* .titreMusicLecture{
     color: rgb(4, 30, 145);
-}
+} */
 .posMargIcoMusic{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -90,4 +90,7 @@
     white-space: nowrap;
     width: 210px;
     overflow: hidden;
+}
+#titreMusicLecture{
+    width:300px;
 }

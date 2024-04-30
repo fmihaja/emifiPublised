@@ -566,3 +566,15 @@ Ajout Reaction:
 Ajout Reaction:
 	Date:30-04-2024 14:45:03
 	95 n'aime plus la chanson numero 66.
+Nouvelle compte:
+	30-04-2024 18:22:18
+	Infos:Id:101,Nom:gogeta mdp: 123456.
+Ajout Reaction:
+	Date:30-04-2024 19:46:19
+	101 aime chanson numero67.
+Ajout Reaction:
+	Date:30-04-2024 19:46:32
+	101 n'aime plus la chanson numero 67.
+Ajout Reaction:
+	Date:30-04-2024 19:46:34
+	101 aime chanson numero67.

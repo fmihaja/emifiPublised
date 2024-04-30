@@ -132,21 +132,21 @@
               </div>
               <div class="container infosMusic">
                 <div class="row">
-                  <p class="h3" id=titreMusicLecture>Titre 1</p>
+                  <p class="h3 titreMusic" id="titreMusicLecture"></p>
                 </div>
                 <div class="row">
                     <input type="range" class="form-range" name="" min="0" max="100" id="progressionMusic">
                 </div>
                 <div class="row controlMusic">
-                  <div class="col-md-2">
-                    <img src="./icone/preview.svg" alt="" class="tailleControl">
-                  </div>
+                  <label class="col-md-2" id="preview">
+                    <img src="./icone/preview.svg" alt="" class="tailleControl" id="preview">
+                  </label>
                   <div class="col-md-2">
                     <img src="./icone/play.svg" alt="" class="tailleControl">
                   </div>
-                  <div class="col-md-2">
+                  <label class="col-md-2" id="next">
                     <img src="./icone/next.svg" alt="" class="tailleControl">
-                  </div>
+                  </label>
                 </div>
               </div>   
               <div class="row">
@@ -157,6 +157,7 @@
                       First radio
                       <span class="d-block small opacity-50">With support text underneath to add more detail</span>
                     </label> -->
+                    <!-- affichage liste Muisc -->
                     
                   </div>
                 </div>

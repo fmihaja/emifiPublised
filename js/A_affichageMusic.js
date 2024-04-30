@@ -1,5 +1,4 @@
 import * as reaction from "./A_reaction.js";
-import * as progression from "./progressionMusic.js";
 var icoMusic="./icone/audio.svg";
 var icoLike="./icone/adore.svg";
 var icoDislike="./icone/adore1.svg";
@@ -109,7 +108,10 @@ $.ajax({
                     // console.log("pas present")
                     audio.src=srcValue;
                     audio.play();
-                    
+                    var next=index+1;
+                    var preview=index-1;
+                    $("#preview").attr("for",$(".music").eq(preview).attr("id"));
+                    $("#next").attr("for",$(".music").eq(next).attr("id"));
                 }
             })            
         });
@@ -119,8 +121,17 @@ $.ajax({
             var actuelTemps=audio.currentTime;
             var pourcentageProgression=(actuelTemps*100)/longueurTemps;
             progressionMusic.val(pourcentageProgression);
-            console.log(progressionMusic.val());
         });
+        //progression lors du click
+        progressionMusic.on("click",(item)=>{
+            //conversion de pourcentage en valeur réelle
+            var pourcentageProgression=progressionMusic.val();
+            var dureeMusic=audio.duration;
+            audio.pause();
+            audio.currentTime=(pourcentageProgression*dureeMusic)/100;
+            audio.play();
+            console.log(audio.currentTime);
+        })
         //filtrage
         //Reaction
         $.each($(".like"), (index, item) => { 
