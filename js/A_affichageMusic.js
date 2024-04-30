@@ -2,6 +2,8 @@ import * as reaction from "./A_reaction.js";
 var icoMusic="./icone/audio.svg";
 var icoLike="./icone/adore.svg";
 var icoDislike="./icone/adore1.svg";
+var audio =new Audio();
+var srcValue="";
 $.ajax({
     type: "get",
     url: "./php/R_chanson.php",
@@ -66,7 +68,7 @@ $.ajax({
             */
             var rbButton=$("<input>").attr({
                 "type":"radio",
-                "class":"list-group-item-check pe-none",
+                "class":"list-group-item-check pe-none music",
                 "name":"gpMusic",
                 "id":item.id_ch,
                 "value":item.titre
@@ -85,6 +87,29 @@ $.ajax({
             $("#listeMusic").append(rbButton,lbGpMusic);
                    
         });
+        //music selectionné
+        audio.src="null"
+        $(".music").each((index, item)=> {
+            $(item).on("click",()=>{
+                $("#titreMusicLecture").text($(item).val());
+                var musicTitre="%20"+$(".music").eq(index).val().replace(" ","%20")+".mp3";
+                srcValue="./audio/"+musicTitre;
+                // cette tableau me permet de determiner si musicTitre est deja present dans l'url
+                var musicEnLecture=audio.src.split('/');
+                if (musicEnLecture.includes(musicTitre)){
+                    console.log("present");
+                    //fait pause/play s'il est deja present
+                    (audio.paused)? audio.play():audio.pause();
+                }
+                else{
+                    //maj du source d'audio
+                    console.log("pas present")
+                    audio.src=srcValue;
+                    audio.play();
+                }
+            })            
+        });
+        //filtrage
         //Reaction
         $.each($(".like"), (index, item) => { 
             $(item).on("click",()=>{

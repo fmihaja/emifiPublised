@@ -132,7 +132,7 @@
               </div>
               <div class="container infosMusic">
                 <div class="row">
-                  <p class="h3 titreMusicLecture">Titre 1</p>
+                  <p class="h3" id=titreMusicLecture>Titre 1</p>
                 </div>
                 <div class="row">
                     <input type="range" class="form-range" name="" id="">
