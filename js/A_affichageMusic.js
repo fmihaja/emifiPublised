@@ -1,8 +1,11 @@
 import * as reaction from "./A_reaction.js";
+import * as progression from "./progressionMusic.js";
 var icoMusic="./icone/audio.svg";
 var icoLike="./icone/adore.svg";
 var icoDislike="./icone/adore1.svg";
 var audio =new Audio();
+var progressionMusic=$("#progressionMusic");
+var lecture;
 var srcValue="";
 $.ajax({
     type: "get",
@@ -97,17 +100,26 @@ $.ajax({
                 // cette tableau me permet de determiner si musicTitre est deja present dans l'url
                 var musicEnLecture=audio.src.split('/');
                 if (musicEnLecture.includes(musicTitre)){
-                    console.log("present");
+                    // console.log("present");
                     //fait pause/play s'il est deja present
                     (audio.paused)? audio.play():audio.pause();
                 }
                 else{
-                    //maj du source d'audio
-                    console.log("pas present")
+                    //maj du source d'audio et play
+                    // console.log("pas present")
                     audio.src=srcValue;
                     audio.play();
+                    
                 }
             })            
+        });
+        //progression de input range
+        audio.addEventListener("timeupdate", function() {
+            var longueurTemps=audio.duration;
+            var actuelTemps=audio.currentTime;
+            var pourcentageProgression=(actuelTemps*100)/longueurTemps;
+            progressionMusic.val(pourcentageProgression);
+            console.log(progressionMusic.val());
         });
         //filtrage
         //Reaction

@@ -135,7 +135,7 @@
                   <p class="h3" id=titreMusicLecture>Titre 1</p>
                 </div>
                 <div class="row">
-                    <input type="range" class="form-range" name="" id="">
+                    <input type="range" class="form-range" name="" min="0" max="100" id="progressionMusic">
                 </div>
                 <div class="row controlMusic">
                   <div class="col-md-2">
