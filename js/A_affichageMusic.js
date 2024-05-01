@@ -77,15 +77,23 @@ $.ajax({
                 // "name":
             });
             var lbGpMusic=$("<label>").attr({
-                "class":"list-group-item rounded-3 py-3",
+                "class":"list-group-item rounded-3 py-3 lbGpMusic",
                 "for":item.id_ch
             });
-            lbGpMusic.text(item.titre);
+            var divColListeTitre=$("<div>").attr("class","col");
+            // var divColListeReact=$("<label>").attr({
+            //     "class":"col",
+            //     "for":item.id_ch
+            // });
+            divColListeTitre.text(item.titre.slice(0,30));
             var spanSousTitre=$("<span>").attr({
                 "class":"d-block small opacity-50"
             });
             // spanSousTitre.text();
-            lbGpMusic.append(spanSousTitre);
+            var listeLike=imgLike.clone().addClass("placementReactionListe");
+            var listeDislike=imgDislike.clone().addClass("placementReactionListe");
+            // divColListeReact.append(listeLike,listeDislike);
+            lbGpMusic.append(divColListeTitre,listeLike,listeDislike);
             $("#listeMusic").append(rbButton,lbGpMusic);
                    
         });
@@ -136,14 +144,23 @@ $.ajax({
         //Reaction
         $.each($(".like"), (index, item) => { 
             $(item).on("click",()=>{
-                var id=$(".col:eq("+index+")").attr("for");
-                reaction.like(id,index);
+                // console.log($(".col").eq(index).attr("for"));
+                setTimeout(() => {
+                    var id=$(".music:checked").attr("id");
+                    console.log(id);
+                    reaction.like(id,index);  
+                }, 100);
+                
             })
         });
         $.each($(".dislike"), (index, item) => { 
             $(item).on("click",()=>{
-                var id=$(".col:eq("+index+")").attr("for");
-                reaction.dislike(id,index);
+                setTimeout(() => {
+                    var id=$(".music:checked").attr("id");
+                    console.log(id);
+                    reaction.dislike(id,index);
+                }, 100);
+                // var id=$(".music:checked").attr("id");
             })
         });
     }

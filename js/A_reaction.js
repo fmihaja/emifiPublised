@@ -11,7 +11,8 @@ export function like(idChClicker,index){
             var msg=data.data.message;
             if (msg=="reaction executé"){
                 $(".col[for="+idChClicker+"]").find(".card>.card-body>.btnLiker").find(".like,.dislike").toggle();
-                $("#affichageMusicAdorer > .col").eq(index).show();
+                $("#affichageMusicAdorer > .col[for="+idChClicker+"]").show();
+                $(".lbGpMusic[for="+idChClicker+"]").find(".like,.dislike").toggle();
             }
             else
                 alert(data.data.message);
@@ -33,7 +34,9 @@ export function dislike(idChClicker,index){
             var msg=data.data.message;
             if (msg=="dislike executé"){
                 $(".col[for="+idChClicker+"]").find(".card>.card-body>.btnLiker").find(".like,.dislike").toggle();
-                $("#affichageMusicAdorer > .col[for="+idChClicker+"]").toggle(); 
+                $("#affichageMusicAdorer > .col[for="+idChClicker+"]").toggle();
+                $(".lbGpMusic[for="+idChClicker+"]").find(".like,.dislike").toggle();
+
             }
             else
                 alert(data.data.message);

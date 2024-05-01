@@ -94,3 +94,9 @@
 #titreMusicLecture{
     width:300px;
 }
+.placementReactionListe{
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+    width: 30px;
+}
