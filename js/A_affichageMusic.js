@@ -145,22 +145,22 @@ $.ajax({
             $(item).on("click",()=>{
                 // console.log($(".col").eq(index).attr("for"));
                 //laps de temps @zay ef checked le input vo mandeha
-                // setTimeout(() => {
+                setTimeout(() => {
                     var id=$(".music:checked").attr("id");
                     console.log(id);
                     reaction.like(id,index);  
-                // }, 1);
+                }, 1);
                 
             })
         });
         $.each($(".dislike"), (index, item) => { 
             $(item).on("click",()=>{
-                //laps de temps @zay ef checked le input vo mandeha
-                // setTimeout(() => {
+                // laps de temps @zay ef checked le input vo mandeha
+                setTimeout(() => {
                     var id=$(".music:checked").attr("id");
                     console.log(id);
                     reaction.dislike(id,index);
-                // }, 100);
+                }, 100);
                 // var id=$(".music:checked").attr("id");
             })
         });
