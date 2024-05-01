@@ -24,11 +24,15 @@
             <!-- <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="post" action=""> -->
             <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="post" action="./accueil.php">
               <div class="form-floating mb-3">
-                <input type="text" id="nom" class="form-control" name="nom" id="floatingName" placeholder="Nom">
+                <input type="text" maxlength="25" id="nom" class="form-control" name="nom" id="floatingName" placeholder="Nom">
                 <label for="floatingName">Nom</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="email" id="iEmail" name="iEmail" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="text" maxlength="10"  id="iTel" name="iTel" class="form-control" id="floatingInput" placeholder="Entrez votre téléphone">
+                <label for="floatingInput">Numero téléphone</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" maxlength="50" id="iEmail" name="iEmail" class="form-control" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
               </div>
               <div class="form-floating mb-3">

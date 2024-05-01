@@ -4,7 +4,6 @@ var icoLike="./icone/adore.svg";
 var icoDislike="./icone/adore1.svg";
 var audio =new Audio();
 var progressionMusic=$("#progressionMusic");
-var lecture;
 var srcValue="";
 $.ajax({
     type: "get",
@@ -81,10 +80,7 @@ $.ajax({
                 "for":item.id_ch
             });
             var divColListeTitre=$("<div>").attr("class","col");
-            // var divColListeReact=$("<label>").attr({
-            //     "class":"col",
-            //     "for":item.id_ch
-            // });
+            //atao 30 caractèere max alaina
             divColListeTitre.text(item.titre.slice(0,30));
             var spanSousTitre=$("<span>").attr({
                 "class":"d-block small opacity-50"
@@ -92,7 +88,7 @@ $.ajax({
             // spanSousTitre.text();
             var listeLike=imgLike.clone().addClass("placementReactionListe");
             var listeDislike=imgDislike.clone().addClass("placementReactionListe");
-            // divColListeReact.append(listeLike,listeDislike);
+            //mametraka btn reaction
             lbGpMusic.append(divColListeTitre,listeLike,listeDislike);
             $("#listeMusic").append(rbButton,lbGpMusic);
                    
@@ -102,22 +98,25 @@ $.ajax({
         $(".music").each((index, item)=> {
             $(item).on("click",()=>{
                 $("#titreMusicLecture").text($(item).val());
-                var musicTitre="%20"+$(".music").eq(index).val().replace(" ","%20")+".mp3";
+                var musicTitre="%20"+$(".music").eq(index).val().replaceAll(" ","%20")+".mp3";
                 srcValue="./audio/"+musicTitre;
                 // cette tableau me permet de determiner si musicTitre est deja present dans l'url
                 var musicEnLecture=audio.src.split('/');
                 if (musicEnLecture.includes(musicTitre)){
-                    // console.log("present");
+                    console.log("present");
                     //fait pause/play s'il est deja present
                     (audio.paused)? audio.play():audio.pause();
                 }
                 else{
                     //maj du source d'audio et play
-                    // console.log("pas present")
+                    console.log("pas present")
+                    console.log(musicEnLecture);
+                    console.log(musicTitre);
                     audio.src=srcValue;
                     audio.play();
                     var next=index+1;
                     var preview=index-1;
+                    //miova for label en fonction hira selectionné
                     $("#preview").attr("for",$(".music").eq(preview).attr("id"));
                     $("#next").attr("for",$(".music").eq(next).attr("id"));
                 }
@@ -145,21 +144,23 @@ $.ajax({
         $.each($(".like"), (index, item) => { 
             $(item).on("click",()=>{
                 // console.log($(".col").eq(index).attr("for"));
-                setTimeout(() => {
+                //laps de temps @zay ef checked le input vo mandeha
+                // setTimeout(() => {
                     var id=$(".music:checked").attr("id");
                     console.log(id);
                     reaction.like(id,index);  
-                }, 100);
+                // }, 1);
                 
             })
         });
         $.each($(".dislike"), (index, item) => { 
             $(item).on("click",()=>{
-                setTimeout(() => {
+                //laps de temps @zay ef checked le input vo mandeha
+                // setTimeout(() => {
                     var id=$(".music:checked").attr("id");
                     console.log(id);
                     reaction.dislike(id,index);
-                }, 100);
+                // }, 100);
                 // var id=$(".music:checked").attr("id");
             })
         });

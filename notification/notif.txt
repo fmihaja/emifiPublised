@@ -671,3 +671,36 @@ Ajout Reaction:
 Ajout Reaction:
 	Date:01-05-2024 07:14:47
 	102 n'aime plus la chanson numero 67.
+Ajout Reaction:
+	Date:01-05-2024 07:15:38
+	102 aime chanson numero67.
+Ajout Reaction:
+	Date:01-05-2024 07:15:50
+	102 n'aime plus la chanson numero 67.
+Nouvelle chanson:
+	01-05-2024 08:45:43
+	Infos:Id:68,Titre:04- Chorale EMIFI EMIT Mikalo Fiderana  Talily Fanjaka 2019.
+Nouvelle chanson:
+	01-05-2024 08:53:31
+	Infos:Id:69,Titre:08  - EMIFI  Ano hagnatognAzy.
+Nouvelle chanson:
+	01-05-2024 08:53:50
+	Infos:Id:70,Titre:09 - EMIFI  Zagnahary SudEst Bawejy Sound tsapiky toliara FIDA CYRILLE RUDY DIDI.
+Nouvelle compte:
+	01-05-2024 09:00:46
+	Infos:Id:103,Nom: mdp: 123456.
+Nouvelle compte:
+	01-05-2024 10:24:44
+	Infos:Id:109,Nom:dsfd mdp: 123456dd.
+Ajout Reaction:
+	Date:01-05-2024 10:25:06
+	109 aime chanson numero70.
+Nouvelle compte:
+	01-05-2024 10:31:14
+	Infos:Id:110,Nom:rabenidriana mdp: 1234568.
+Ajout Reaction:
+	Date:01-05-2024 10:31:44
+	110 aime chanson numero68.
+Ajout Reaction:
+	Date:01-05-2024 10:32:51
+	110 n'aime plus la chanson numero 68.
