@@ -64,7 +64,7 @@
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Deconnexion</a></li>
+                    <li><span class="dropdown-item" id="deconnexion" href="#">Deconnexion</span></li>
                   </ul>
                 </li>
               </ul>
@@ -142,7 +142,8 @@
                     <img src="./icone/preview.svg" alt="" class="tailleControl" id="preview">
                   </label>
                   <div class="col-md-2">
-                    <img src="./icone/play.svg" alt="" class="tailleControl">
+                    <img src="./icone/play.svg" id="mettrePlay" alt="" class="tailleControl">
+                    <img src="./icone/pause.svg" id="mettrePause" alt="" class="tailleControl">
                   </div>
                   <label class="col-md-2" id="next">
                     <img src="./icone/next.svg" alt="" class="tailleControl">

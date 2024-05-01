@@ -83,6 +83,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.modePause{
+    opacity: 0.5;
+}
 /* .noDebordement{
     overflow: hidden;
 } */

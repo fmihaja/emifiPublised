@@ -2,9 +2,12 @@ import * as reaction from "./A_reaction.js";
 var icoMusic="./icone/audio.svg";
 var icoLike="./icone/adore.svg";
 var icoDislike="./icone/adore1.svg";
+var idChReact=[];
 var audio =new Audio();
 var progressionMusic=$("#progressionMusic");
 var srcValue="";
+$("#mettrePlay").show();
+$("#mettrePause").hide();
 $.ajax({
     type: "get",
     url: "./php/R_chanson.php",
@@ -12,7 +15,7 @@ $.ajax({
     success: function (data) {
         var dataSansReaction=data.sansReaction;
         var dataAvecReaction=data.avecReaction;
-        var idChReact=[];
+        
         //on met dans un tableau tout les music deja liker
         $.each(dataAvecReaction, (index,item)=> { 
              idChReact.push(item);
@@ -103,19 +106,23 @@ $.ajax({
                 // cette tableau me permet de determiner si musicTitre est deja present dans l'url
                 var musicEnLecture=audio.src.split('/');
                 if (musicEnLecture.includes(musicTitre)){
-                    console.log("present");
+                    // console.log("present");
                     //fait pause/play s'il est deja present
                     (audio.paused)? audio.play():audio.pause();
+                    $("#mettrePlay,#mettrePause").toggle();
                 }
                 else{
                     //maj du source d'audio et play
-                    console.log("pas present")
-                    console.log(musicEnLecture);
-                    console.log(musicTitre);
+                    // console.log("pas present")
+                    // console.log(musicEnLecture);
+                    // console.log(musicTitre);
                     audio.src=srcValue;
                     audio.play();
-                    var next=index+1;
-                    var preview=index-1;
+                    var next=(index+1<($(".music").length))? index+1:0;
+                    var preview=(index-1>=0)? index-1:$(".music").length-1;
+                    //tonga de show play d mande hira à chaque nouveau lien
+                    $("#mettrePlay").hide();
+                    $("#mettrePause").show();
                     //miova for label en fonction hira selectionné
                     $("#preview").attr("for",$(".music").eq(preview).attr("id"));
                     $("#next").attr("for",$(".music").eq(next).attr("id"));
@@ -128,7 +135,26 @@ $.ajax({
             var actuelTemps=audio.currentTime;
             var pourcentageProgression=(actuelTemps*100)/longueurTemps;
             progressionMusic.val(pourcentageProgression);
+            
         });
+        //fin audio
+        audio.addEventListener("ended",function(){
+            var posChecked=$(".music:checked").index();
+            console.log($(".music:checked").index());
+            var next=(posChecked+1<$(".music").length)? posChecked+1:0;
+            $(".music").eq(next).prop("checked",true);
+            console.log($(".music:checked").index());
+            $(".music:eq("+next+")").trigger("click")
+        })
+        //mettre pause/play
+        $("#mettrePlay").on("click",()=>{
+            audio.play();
+            $("#mettrePlay,#mettrePause").toggle();
+        })
+        $("#mettrePause").on("click",()=>{
+            audio.pause();
+            $("#mettrePlay,#mettrePause").toggle();
+        })
         //progression lors du click
         progressionMusic.on("click",(item)=>{
             //conversion de pourcentage en valeur réelle
@@ -137,9 +163,26 @@ $.ajax({
             audio.pause();
             audio.currentTime=(pourcentageProgression*dureeMusic)/100;
             audio.play();
-            console.log(audio.currentTime);
         })
         //filtrage
+        $("#recherche").on("input", function () {
+            $("#typeFiltre").text("Filtrage");
+            $.each($(".music"), function (index, item) {
+                $(".lbGpMusic:eq("+index+")").toggle(($("#recherche").val().toUpperCase()===$(item).val().slice(0,$("#recherche").val().length).toUpperCase())) ;
+                console.log($(item).is(":hidden"));
+            });
+        });
+        $("#filtreAdorer").on("click",()=>{
+            $.each($(".music"), function (index, item) {
+                $(".lbGpMusic:eq("+index+")").toggle(!$("#affichageMusicAdorer>.col:eq("+index+")").is(":hidden")) ;
+                console.log($(item).is(":hidden"));
+            });
+            $("#typeFiltre").text($("#filtreAdorer").text());
+        })
+        $("#filtreAucun").on("click",()=>{
+            $(".lbGpMusic").show();
+            $("#typeFiltre").text($("#filtreAucun").text());
+        })
         //Reaction
         $.each($(".like"), (index, item) => { 
             $(item).on("click",()=>{

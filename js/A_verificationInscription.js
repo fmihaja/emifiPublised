@@ -20,7 +20,7 @@ $("#iTel").on("blur",function(){
         $(this).focus();
 })
 setInterval(() => {
-    if($("#nom").val()=="" || $("#iEmail").val()=="" || $("#iMdp").val()=="" || $("#iTel").val()==""){
+    if($("#nom").val()=="" || $("#iEmail").val()=="" || $("#iMdp").val()=="" || $("#iTel").val().length!=10){
         $('#btnSubmit').css("opacity","0.5");
         $('#btnSubmit').prop("disabled",true);
     }
