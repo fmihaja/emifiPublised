@@ -57,6 +57,22 @@
             $query->bindValue(":numeroTel",$numeroTel,PDO::PARAM_STR);
             return $bd->executeRequete($query);
         }
+        public function updateUser($idUser,$nom,$email,$mdp,$numeroTel){
+            $bd=$this->bd;
+            $query=$bd->connect()->prepare("UPDATE user SET nom=:nom,email=:email,mdp=:mdp,numero_tel=:numeroTel WHERE id_users=:idUser");
+            $query->bindValue(":nom",$nom,PDO::PARAM_STR);
+            $query->bindValue(":email",$email,PDO::PARAM_STR);
+            $query->bindValue(":mdp",$mdp,PDO::PARAM_STR);
+            $query->bindValue(":numeroTel",$numeroTel,PDO::PARAM_STR);
+            $query->bindValue(":idUser",$idUser,PDO::PARAM_STR);
+            return $bd->executeRequete($query);
+        }
+        public function deleteUser($idUser){
+            $bd=$this->bd;
+            $query=$bd->connect()->prepare("DELETE FROM user WHERE id_user=:idUser");
+            $query->bindValue(":idUser",$idUser,PDO::PARAM_STR);
+            return $bd->executeRequete($query);
+        }
         public function selectAll(){
             $bd=$this->bd;
             $query=$bd->connect()->query("SELECT * FROM user");

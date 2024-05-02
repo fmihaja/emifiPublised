@@ -18,6 +18,11 @@
             $query->bindValue(":idUser",$idUser,PDO::PARAM_STR);
             $query->bindValue(":idCh",$idCh,PDO::PARAM_STR);
             return $bd->executeRequete($query);
+        }public function delReactClient($idUser){
+            $bd=$this->bd;
+            $query=$bd->connect()->prepare("DELETE FROM reaction WHERE id_user=:idUser");
+            $query->bindValue(":idUser",$idUser,PDO::PARAM_STR);
+            return $bd->executeRequete($query);
         }
         public function selectAllChansons($idUser){
             $bd=$this->bd;
