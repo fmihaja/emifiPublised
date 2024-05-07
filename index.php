@@ -22,7 +22,7 @@
           </div>
           <div class="col-md-10 mx-auto col-lg-5">
             <!-- <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="post" action=""> -->
-            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" method="post" action="./accueil.php">
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="signUp" method="post" action="./accueil.php">
               <div class="form-floating mb-3">
                 <input type="text" maxlength="25" id="nom" class="form-control" name="nom" id="floatingName" placeholder="Nom">
                 <label for="floatingName">Nom</label>
@@ -33,21 +33,40 @@
               </div>
               <div class="form-floating mb-3">
                 <input type="email" maxlength="50" id="iEmail" name="iEmail" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <label for="floatingInput">Email</label>
               </div>
               <div class="form-floating mb-3">
-                <input type="password" id="iMdp" name="iMdp" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password" id="iMdp" name="iMdp" class="form-control" id="floatingPassword" placeholder="Mot de passe">
+                <label for="floatingPassword">Mot de passe</label>
               </div>
-              <!-- <input id="btnSubmit" class="w-100 btn btn-lg btn-primary" type="button" value="S'inscrire"> -->
               <button id="btnSubmit" class="w-100 btn btn-lg btn-primary" type="">
                 <span id="valueBtnSubmit">S'inscrire</span>
                 <div class="spinner-border text-light" role="status" id="loadSignUp">
                     <span class="visually-hidden">Loading...</span>
                 </div>
               </button>
+              <a href="#" id="switchLogin">Se connecter</a>
               <hr class="my-4">
               <small class="text-body-secondary">On appuyant sur s'inscrire vous acceptez nos termes et conditions</small>
+            </form>
+            <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="login"  method="post" action="./accueil.php">
+              <div class="form-floating mb-3">
+                <input type="email" maxlength="50" id="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email ou téléphone</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" id="mdp" name="mdp" class="form-control" id="floatingPassword" placeholder="Entrez votre mot de passe">
+                <label for="floatingPassword">Mot de passe</label>
+              </div>
+              <button id="btnSubmitLogin" class="w-100 btn btn-lg btn-primary" type="">
+                <span id="valueBtnSubmitLogin">Se connecter</span>
+                <div class="spinner-border text-light" role="status" id="loadLogin">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+              </button>
+              <a href="#" id="switchSignUp">S'inscrire</a>
+              <hr class="my-4">
+              <small class="text-body-secondary">On appuyant sur se connecter vous acceptez nos termes et conditions</small>
             </form>
           </div>
         </div>

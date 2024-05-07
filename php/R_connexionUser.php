@@ -11,6 +11,15 @@
             // echo json_encode($data["id_users"]);
             if (password_verify($mdp,$request["mdp"])){
                 $message="Connexion effectué";
+                session_start();
+                $request=$user->selectOne($request["id_users"]);
+                $_SESSION["user"]=[
+                    "id"=>$request["id_users"],
+                    "nom"=>$request["nom"],
+                    "email"=>$request["email"],
+                    "mdp"=>$mdp,
+                    "numeroTel"=>$request["numero_tel"]
+                ];
             }
                 
         }    

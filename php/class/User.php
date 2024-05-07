@@ -85,7 +85,7 @@
         }
         public function selectEmailMdp($email){
             $bd=$this->bd;
-            $query=$bd->connect()->query("SELECT email,mdp,id_users FROM user WHERE email='$email'");
+            $query=$bd->connect()->query("SELECT email,mdp,id_users FROM user WHERE email='$email' OR numero_tel='$email'");
             return $bd->queryRequeteOne($query);
         }
         public function selectLastIdUser(){

@@ -33,7 +33,8 @@
                         "id"=>$idUser,
                         "nom"=>$nom,
                         "email"=>$email,
-                        "numeroTel"=>$numeroTel
+                        "numeroTel"=>$numeroTel,
+                        "mdp"=>$_POST["iMdp"]
                     ];
                 }
                 $data["data"]=[
