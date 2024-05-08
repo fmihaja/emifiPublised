@@ -17,11 +17,9 @@
                     "id"=>$request["id_users"],
                     "nom"=>$request["nom"],
                     "email"=>$request["email"],
-                    "mdp"=>$mdp,
                     "numeroTel"=>$request["numero_tel"]
                 ];
             }
-                
         }    
     }
     $data["data"]=[

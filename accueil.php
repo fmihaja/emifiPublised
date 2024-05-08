@@ -59,7 +59,7 @@
                     Reglage
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Modifier profil</a></li>
+                    <li><span class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">Modifier profil</span></li>
                     <li><a class="dropdown-item" href="#">Envoyez un feedback</a></li>
                     <li>
                       <hr class="dropdown-divider">
@@ -88,7 +88,7 @@
             <!-- fin footer -->
           </div>
         </div>
-      </nav>
+    </nav>
     <p class="display-4 titre">Chansons récente:</p>
     <div class="container">
         <div class="row containerMusic" id="affichageChansons">
@@ -175,42 +175,40 @@
           </div>
         </div>
       </div>
-    </div> 
-
-<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content rounded-4 shadow">
-      <div class="modal-header p-5 pb-4 border-bottom-0">
-        <h1 class="fw-bold mb-0 fs-2">Modifier le profil</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body p-5 pt-0">
-        <form class="">
-        <div class="form-floating mb-3">
-            <input type="text" maxlength="25" value="<?= $_SESSION['user']['nom'] ?>" class="form-control rounded-3" id="nom" name="nom" placeholder="Entrez votre nom">
-            <label for="floatingInput">Nom</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="email" maxlength="50" value="<?= $_SESSION['user']['email'] ?>"  class="form-control rounded-3" id="email" name="email" placeholder="name@example.com">
-            <label for="floatingInput">Email</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="text" maxlength="10" value="<?= $_SESSION['user']['numeroTel'] ?>"  class="form-control rounded-3" id="numeroTel" name="numeroTel" placeholder="0225566989">
-            <label for="floatingInput">Numero téléphone</label>
-          </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control rounded-3" id="mdp" name="mdp" placeholder="Password">
-            <label for="floatingPassword">Mot de passe</label>
-          </div>
-          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Confirmez</button>
-          <small class="text-body-secondary">En appuyant sur confirmez, vos information seront modifier.</small>
-        </form>
-      </div>
     </div>
-  </div>
-</div>
-
+    <!-- Modification Profile -->
+    <div class="modal fade" id="staticBackdropLive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+              <div class="modal-header p-5 pb-4 border-bottom-0">
+                <h1 class="fw-bold mb-0 fs-2">Modifier le profil</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-5 pt-0">
+                <form class="">
+                <div class="form-floating mb-3">
+                    <input type="text" maxlength="25" value="<?= $_SESSION['user']['nom'] ?>" class="form-control rounded-3" id="nom" name="nom" placeholder="Entrez votre nom">
+                    <label for="floatingInput">Nom</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" maxlength="50" value="<?= $_SESSION['user']['email'] ?>"  class="form-control rounded-3" id="email" name="email" placeholder="name@example.com">
+                    <label for="floatingInput">Email</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" maxlength="10" value="<?= $_SESSION['user']['numeroTel'] ?>"  class="form-control rounded-3" id="numeroTel" name="numeroTel" placeholder="0225566989">
+                    <label for="floatingInput">Numero téléphone</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control rounded-3" id="mdp" name="mdp" placeholder="Password">
+                    <label for="floatingPassword">Mot de passe</label>
+                  </div>
+                  <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Confirmez</button>
+                  <small class="text-body-secondary">En appuyant sur confirmez, vos information seront modifier.</small>
+                </form>
+              </div>
+        </div>
+      </div>
+    </div> 
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery-3.7.1.js"></script>
   <script type="module" src="./js/A_affichageMusic.js"></script>
