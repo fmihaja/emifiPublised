@@ -49,7 +49,7 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item listMenu">
-                  <a class="nav-link active" aria-current="page" href="#"><span class="h3" style="margin-right:5px"><i class="far fa-user-circle"></i></span><?=$_SESSION["user"]["nom"]?></a>
+                  <a class="nav-link active" id="navBarNomUser" aria-current="page" href="#"><span class="h3" style="margin-right:5px"><i class="far fa-user-circle"></i></span><?=$_SESSION["user"]["nom"]?></a>
                 </li>
                 <li class="nav-item listMenu">
                   <span class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable">Liste Music</span>
@@ -59,7 +59,7 @@
                     Reglage
                   </a>
                   <ul class="dropdown-menu">
-                    <li><span class="dropdown-item" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">Modifier profil</span></li>
+                    <li><span class="dropdown-item" id="btnModifProfile" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">Modifier profil</span></li>
                     <li><a class="dropdown-item" href="#">Envoyez un feedback</a></li>
                     <li>
                       <hr class="dropdown-divider">
@@ -191,10 +191,6 @@
                     <label for="floatingInput">Nom</label>
                   </div>
                   <div class="form-floating mb-3">
-                    <input type="email" maxlength="50" value="<?= $_SESSION['user']['email'] ?>"  class="form-control rounded-3" id="email" name="email" placeholder="name@example.com">
-                    <label for="floatingInput">Email</label>
-                  </div>
-                  <div class="form-floating mb-3">
                     <input type="text" maxlength="10" value="<?= $_SESSION['user']['numeroTel'] ?>"  class="form-control rounded-3" id="numeroTel" name="numeroTel" placeholder="0225566989">
                     <label for="floatingInput">Numero téléphone</label>
                   </div>
@@ -202,7 +198,11 @@
                     <input type="password" class="form-control rounded-3" id="mdp" name="mdp" placeholder="Password">
                     <label for="floatingPassword">Mot de passe</label>
                   </div>
-                  <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Confirmez</button>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control rounded-3" id="nvMdp" name="nvMdp" placeholder="Password">
+                    <label for="floatingPassword">Nouveau mot de passe</label>
+                  </div>
+                  <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" id="modificationProfile" value="" type="submit">confirmez</button>
                   <small class="text-body-secondary">En appuyant sur confirmez, vos information seront modifier.</small>
                 </form>
               </div>

@@ -46,25 +46,35 @@
                 echo json_encode($data);
                 break;
             case "PUT":
+                session_start();
                 $dataInput=json_decode(file_get_contents("php://input",true));
                 //accede au tableau qui a idUser dans le fichier json
-                $idUser=$dataInput->idUser;
-                $nom=$dataInput->nom;
-                $email=$dataInput->email;
-                $numeroTel=$dataInput->numeroTel;
-                if (!$user->updateUser($idUser,$nom,$email,$mdp,$numeroTel)!=1){
+                $idUser=$_SESSION["user"]["id"];
+                $nom=strip_tags($dataInput->nom);
+                $numeroTel=strip_tags($dataInput->numeroTel);
+                $mdp=strip_tags($dataInput->mdp);
+                $infos=$user->selectOne($idUser);
+                $mdpUser=$infos["mdp"];
+                $nvMdp=(trim($dataInput->nvMdp)!="")? password_hash(strip_tags($dataInput->nvMdp),PASSWORD_ARGON2ID):$mdpUser;
+                if (!password_verify($mdp,$mdpUser))
+                    $message="Verifier votre mot de passe";
+                else if ($dataInput->nvMdp!="" && strlen($dataInput->nvMdp)<5 || strlen($dataInput->nvMdp)>15)
+                    $message="Mot de passe doit être entre 5 et 15 caractère";
+                else if ($user->updateUser($idUser,$nom,$nvMdp,$numeroTel)!=1){
                     $message="mise à jour non executé";
                 }
                 else{
                     $message="mise à jour executé";
-                    session_start();
                     $_SESSION["user"]=[
                         "id"=>$idUser,
                         "nom"=>$nom,
-                        "email"=>$email,
                         "numeroTel"=>$numeroTel
                     ];
                 }
+                $data["data"]=[
+                    "message"=>$message
+                ];
+                echo json_encode($data);
             break;                
             case "DELETE":
                 $reaction=new Reaction();

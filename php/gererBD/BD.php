@@ -20,8 +20,8 @@
         }
         public function executeRequete($query){
             if (!$query->execute()){
-                // print_r($query->errorInfo());
-                return 0;
+                // $query->errorInfo();
+                return $query->errorInfo();;
             }
             else
                 return 1;

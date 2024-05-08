@@ -6,6 +6,9 @@ var idChReact=[];
 var audio =new Audio();
 var progressionMusic=$("#progressionMusic");
 var srcValue="";
+var  interval;
+var nom=$("#nom").val();
+var tel=$("#numeroTel").val();
 $("#mettrePlay").show();
 $("#mettrePause").hide();
 $.ajax({
@@ -209,3 +212,50 @@ $.ajax({
         });
     }
 });
+//Modification User
+$("#btnModifProfile").on("click",()=>{
+    interval=setInterval(() => {
+        if ($("#nom").val()=="" || $("#numeroTel").val().length!=10 || $("#mdp").val()==""){
+            $("#modificationProfile").css("opacity","0.5");
+            $("#modificationProfile").prop("disabled",true);
+        }
+        else{
+            $("#modificationProfile").css("opacity","1");
+            $("#modificationProfile").prop("disabled",false);
+        }
+    }, 100);
+    
+    $("#nom").on("keydown",(e)=>{
+        if ((e.keyCode<60 || e.keyCode>90) && e.keyCode!=8)
+            e.preventDefault();
+    })
+    
+    $("#numeroTel").on("keydown",(e)=>{
+        if ((isNaN(e.key) && e.keyCode!=8))
+            e.preventDefault();
+    })
+})
+$("#btnModifProfile").on("blur",()=>{
+    clearInterval(interval);
+})
+$("#modificationProfile").on("click",function(e){
+    e.preventDefault();
+    $.ajax({
+        type: "put",
+        url: "./php/R_user.php",
+        // contentType: "application/json",
+        data:JSON.stringify({nom:$("#nom").val(),numeroTel:$("#numeroTel").val(),mdp:$("#mdp").val(),nvMdp:$("#nvMdp").val()}),
+        dataType: "json",
+        success: function (data) {
+            var msg=data.data.message
+            if (msg=="mise à jour executé")
+                $("#modificationProfile").closest('form').submit();
+            else{
+                $("#numeroTel").val(tel);
+                $("#nom").val(nom);
+            }
+            alert(msg);
+
+        }
+    });
+})
