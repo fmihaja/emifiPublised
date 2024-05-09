@@ -60,7 +60,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><span class="dropdown-item" id="btnModifProfile" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">Modifier profil</span></li>
-                    <li><span class="dropdown-item" id="btnPopUpSuppression">Envoyez un feedback</span></li>
+                    <li><span class="dropdown-item" id="btnPopUpFeedBack"data-bs-toggle="modal" data-bs-target="#popUpFeedBack">Envoyez un feedback</span></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
@@ -68,21 +68,32 @@
                   </ul>
                 </li>
               </ul>
+              
             </div>
             <!-- footer -->
               <div class="b-example-divider"></div>
+              
               <div class="container">
-                <h3>Contact us:</h3>
-                <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                  <div class="col-md-4 d-flex align-items-center">
-                    <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 emifi, Inc</span>
-                  </div>
-                  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
-                    <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                <div class="row offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item listMenu">
+                      <span class="nav-link" id="btnPopUpDeconnexion" data-bs-toggle="modal" data-bs-target="#popUpDeconnexion">Deconnexion</span>
+                    </li>
                   </ul>
-                </footer>
+                </div>
+                <div class="row">
+                  <h3>Contact us:</h3>
+                  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <div class="col-md-4 d-flex align-items-center">
+                      <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2024 emifi, Inc</span>
+                    </div>
+                    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                      <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+                    </ul>
+                  </footer>
+                </div>
               </div>
               <div class="b-example-divider"></div>
             <!-- fin footer -->
@@ -205,9 +216,7 @@
       </div>
     </div> 
     <!-- confirmation suppression -->
-      
-      <!-- animation fade out -->
-      <div class="modal fade" id="popUpSuppression" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+    <div class="modal fade" id="popUpSuppression" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content rounded-3 shadow">
             <div class="modal-body p-4 text-center">
@@ -220,7 +229,41 @@
             </form>
           </div>
         </div>
+    </div>
+    <!-- confirmation Deconnexion -->
+    <div class="modal fade" id="popUpDeconnexion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content rounded-3 shadow">
+            <div class="modal-body p-4 text-center">
+              <h5 class="mb-0">Voulez vous vraiment vous deconnectez?</h5>
+              <!-- <p class="mb-0">You can always change your mind in your account settings.</p> -->
+            </div>
+            <form method="post" action="./index.php" class="modal-footer flex-nowrap p-0">
+              <button type="submit" id="btnConfDeconnexion" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"><strong>Oui, je le veux</strong></button>
+              <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" data-bs-dismiss="modal">Annuler</button>
+            </form>
+          </div>
+        </div>
+    </div>
+    <!-- Envoi de feedback -->
+    <form method="post" action="./php/fonction/envoiFeedBack.php" class="modal fade" id="popUpFeedBack" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalCenteredScrollableTitle">Envoyez un feedback</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">  
+              <textarea name="contenuFeedBack" id="feedBack" cols="40" rows="15"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Envoyez</button>
+          </div>
+        </div>
       </div>
+    </form>
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery-3.7.1.js"></script>
   <script type="module" src="./js/A_affichageMusic.js"></script>

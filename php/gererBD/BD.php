@@ -21,7 +21,7 @@
         public function executeRequete($query){
             if (!$query->execute()){
                 // $query->errorInfo();
-                return $query->errorInfo();;
+                return $query->errorInfo();
             }
             else
                 return 1;

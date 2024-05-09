@@ -905,3 +905,48 @@ Ajout Reaction:
 	Date:09-05-2024 10:53:50
 	154 aime chanson numero70.09-05-2024 10:53:56
 	Infos:Infos: id:154 email:admin mdp:.
+Nouvelle compte:
+	09-05-2024 11:00:22
+	Infos:Id:155,Nom:admin mdp: 12345.
+Suppresion de chanson:
+	09-05-2024 11:01:01
+	Infos:Infos: id:155 nom:admin.
+Nouvelle compte:
+	09-05-2024 11:07:38
+	Infos:Id:158,Nom:dsfdsf mdp: 12345678.
+Suppresion de compte:
+	09-05-2024 11:07:58
+	Infos:.
+Nouvelle compte:
+	09-05-2024 11:09:41
+	Infos:Id:160,Nom:adminok mdp: 12345.
+Suppresion de compte:
+	09-05-2024 11:09:51
+	Infos:Infos: id:160 nom:adminok.
+Nouvelle compte:
+	09-05-2024 11:10:31
+	Infos:Id:161,Nom:adminok mdp: 43210.
+Suppresion de compte:
+	09-05-2024 11:10:39
+	Infos:id:161 nom:adminok.
+Nouvelle compte:
+	09-05-2024 11:12:21
+	Infos:Id:163,Nom:adminok mdp: 12345.
+Suppresion de compte:
+	09-05-2024 11:12:40
+	Infos:id:163 nom:adminok.
+Nouvelle compte:
+	09-05-2024 11:37:03
+	Infos:Id:165,Nom:adminok mdp: 12345.
+Ajout Reaction:
+	Date:09-05-2024 11:37:50
+	165 aime chanson numero71.
+Ajout Reaction:
+	Date:09-05-2024 11:37:51
+	165 aime chanson numero70.
+Suppresion de compte:
+	09-05-2024 11:46:12
+	Infos:id:165 nom:adminok.
+Nouvelle compte:
+	09-05-2024 12:06:44
+	Infos:Id:169,Nom:rabenidriana mdp: 12345.

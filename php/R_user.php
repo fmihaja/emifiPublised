@@ -9,7 +9,6 @@
         $user=new User;
         switch ($method){
             case "POST":
-                $message="ok";
                 $email= strip_tags($_POST["iEmail"]);
                 $nom=strip_tags($_POST["nom"]);
                 $numeroTel=strip_tags($_POST["iTel"]);
@@ -61,7 +60,7 @@
                 else if ($dataInput->nvMdp!="" && strlen($dataInput->nvMdp)<5 || strlen($dataInput->nvMdp)>15)
                     $message="Mot de passe doit être entre 5 et 15 caractère";
                 else if ($user->updateUser($idUser,$nom,$nvMdp,$numeroTel)!=1){
-                    $message="mise à jour non executé";
+                    $message="mise à jour non executé,le numeroTel est deja pris";
                 }
                 else{
                     $message="mise à jour executé";
@@ -89,8 +88,8 @@
                     $message="suppression non executé";
                 else{
                     $message="suppression effectué";
-                    $infos="Infos: id:".$_SESSION["user"]["id"]." email:".$_SESSION["user"]["nom"]." mdp:".$_SESSION["user"]["mdp"];
-                    ecritureNotifUserCh("Suppression",$infos);   
+                    $infos="id:".$_SESSION["user"]["id"]." nom:".$_SESSION["user"]["nom"];
+                    ecritureNotifUserCh("delete",$infos,$idUser);   
                     session_destroy();
                     // header('Location: ../index.php');       
                 }  
