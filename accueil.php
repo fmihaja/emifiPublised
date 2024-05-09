@@ -60,11 +60,11 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><span class="dropdown-item" id="btnModifProfile" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">Modifier profil</span></li>
-                    <li><a class="dropdown-item" href="#">Envoyez un feedback</a></li>
+                    <li><span class="dropdown-item" id="btnPopUpSuppression">Envoyez un feedback</span></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
-                    <li><span class="dropdown-item" id="deconnexion" href="#">Deconnexion</span></li>
+                    <li><span class="dropdown-item" id="btnPopUpSuppression" style="color:red" data-bs-toggle="modal" data-bs-target="#popUpSuppression">Supprimer compte</span></li>
                   </ul>
                 </li>
               </ul>
@@ -102,6 +102,7 @@
         </div>
     </div>
     <br>
+    <!-- liste Music -->
     <div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -159,16 +160,10 @@
                       <span class="d-block small opacity-50">With support text underneath to add more detail</span>
                     </label> -->
                     <!-- affichage liste Muisc -->
-                    
                   </div>
                 </div>
-
-          </div>
+              </div>
             </div>
-          </div>
-          <div class="container">
-            
-            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -180,11 +175,11 @@
     <div class="modal fade" id="staticBackdropLive" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-              <div class="modal-header p-5 pb-4 border-bottom-0">
-                <h1 class="fw-bold mb-0 fs-2">Modifier le profil</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body p-5 pt-0">
+          <div class="modal-header p-5 pb-4 border-bottom-0">
+            <h1 class="fw-bold mb-0 fs-2">Modifier le profil</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-5 pt-0">
                 <form class="" method="post">
                 <div class="form-floating mb-3">
                     <input type="text" maxlength="25" value="<?= $_SESSION['user']['nom'] ?>" class="form-control rounded-3" id="nom" name="nom" placeholder="Entrez votre nom">
@@ -205,10 +200,27 @@
                   <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" id="modificationProfile" value="" type="submit">confirmez</button>
                   <small class="text-body-secondary">En appuyant sur confirmez, vos information seront modifier.</small>
                 </form>
-              </div>
+          </div>
         </div>
       </div>
     </div> 
+    <!-- confirmation suppression -->
+      
+      <!-- animation fade out -->
+      <div class="modal fade" id="popUpSuppression" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content rounded-3 shadow">
+            <div class="modal-body p-4 text-center">
+              <h5 class="mb-0">Voulez vous vraiment supprimez votre compte?</h5>
+              <!-- <p class="mb-0">You can always change your mind in your account settings.</p> -->
+            </div>
+            <div class="modal-footer flex-nowrap p-0">
+              <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end" style="color:red"><strong>Oui, je le veux</strong></button>
+              <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" data-bs-dismiss="modal">Annuler</button>
+            </div>
+          </div>
+        </div>
+      </div>
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery-3.7.1.js"></script>
   <script type="module" src="./js/A_affichageMusic.js"></script>
