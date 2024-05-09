@@ -1,13 +1,13 @@
 $("#loadSignUp,#loadLogin,#login").hide();
 $("#nom").focus();
 $("#nom").on("keydown",(e)=>{
-    if ((e.keyCode<60 || e.keyCode>90) && e.keyCode!=8)
+    if ((e.keyCode<60 || e.keyCode>90) && e.keyCode!=8 && e.keyCode!=37 && e.keyCode!=39)
         e.preventDefault();
 })
 
 $("#iTel").on("keydown",(e)=>{
     // console.log(!(isNaN(e.key)));
-    if ((isNaN(e.key) && e.keyCode!=8))
+    if ((isNaN(e.key) && e.keyCode!=8 && e.keyCode!=37 && e.keyCode!=39))
         e.preventDefault();
 })
 

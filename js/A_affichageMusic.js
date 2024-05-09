@@ -226,12 +226,12 @@ $("#btnModifProfile").on("click",()=>{
     }, 100);
     
     $("#nom").on("keydown",(e)=>{
-        if ((e.keyCode<60 || e.keyCode>90) && e.keyCode!=8)
+        if ((e.keyCode<60 || e.keyCode>90) && e.keyCode!=8 && e.keyCode!=37 && e.keyCode!=39)
             e.preventDefault();
     })
     
     $("#numeroTel").on("keydown",(e)=>{
-        if ((isNaN(e.key) && e.keyCode!=8))
+        if ((isNaN(e.key) && e.keyCode!=8 && e.keyCode!=37 && e.keyCode!=39))
             e.preventDefault();
     })
 })
@@ -251,8 +251,8 @@ $("#modificationProfile").on("click",function(e){
             if (msg=="mise à jour executé")
                 $("#modificationProfile").closest('form').submit();
             else{
-                $("#numeroTel").val(tel);
                 $("#nom").val(nom);
+                $("#numeroTel").val(tel);
             }
             alert(msg);
 

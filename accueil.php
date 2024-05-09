@@ -185,7 +185,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body p-5 pt-0">
-                <form class="">
+                <form class="" method="post">
                 <div class="form-floating mb-3">
                     <input type="text" maxlength="25" value="<?= $_SESSION['user']['nom'] ?>" class="form-control rounded-3" id="nom" name="nom" placeholder="Entrez votre nom">
                     <label for="floatingInput">Nom</label>
