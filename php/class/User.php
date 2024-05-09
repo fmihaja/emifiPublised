@@ -68,7 +68,7 @@
         }
         public function deleteUser($idUser){
             $bd=$this->bd;
-            $query=$bd->connect()->prepare("DELETE FROM user WHERE id_user=:idUser");
+            $query=$bd->connect()->prepare("DELETE FROM user WHERE id_users=:idUser");
             $query->bindValue(":idUser",$idUser,PDO::PARAM_STR);
             return $bd->executeRequete($query);
         }

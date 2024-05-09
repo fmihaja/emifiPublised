@@ -242,6 +242,7 @@ $("#modificationProfile").on("click",function(e){
     e.preventDefault();
     $.ajax({
         type: "put",
+        data:"",
         url: "./php/R_user.php",
         // contentType: "application/json",
         data:JSON.stringify({nom:$("#nom").val(),numeroTel:$("#numeroTel").val(),mdp:$("#mdp").val(),nvMdp:$("#nvMdp").val()}),
@@ -256,6 +257,24 @@ $("#modificationProfile").on("click",function(e){
             }
             alert(msg);
 
+        },
+        error:(e)=>{
+            alert("Vous êtes actuelment hors ligne")
+            console.log(e.responseText);
+        }
+    });
+})
+$("#btnConfSuppression").on("click",function(e){
+    e.preventDefault();
+    $.ajax({
+        type: "DELETE",
+        url: "./php/R_user.php",
+        dataType: "json",
+        success: function (data) {
+            var msg=data.data.message;
+            alert(msg);
+            if (msg=="suppression effectué")
+                $("#btnConfSuppression").closest('form').submit();
         }
     });
 })

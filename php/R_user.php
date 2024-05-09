@@ -78,12 +78,13 @@
             break;                
             case "DELETE":
                 $reaction=new Reaction();
-                //enleve le json
+                // //enleve le json
                 // $dataInput=json_decode(file_get_contents("php://input",true));
-                // //accede au tableau qui a idUser dans le fichier json
+                // // //accede au tableau qui a idUser dans le fichier json
                 // $idUser=$dataInput->idUser;
                 session_start();
                 $idUser=$_SESSION["user"]["id"];
+                // $message=$user->deleteUser($idUser);
                 if ($reaction->delReactClient($idUser)!=1 || $user->deleteUser($idUser)!=1)
                     $message="suppression non executé";
                 else{
@@ -91,15 +92,13 @@
                     $infos="Infos: id:".$_SESSION["user"]["id"]." email:".$_SESSION["user"]["nom"]." mdp:".$_SESSION["user"]["mdp"];
                     ecritureNotifUserCh("Suppression",$infos);   
                     session_destroy();
-                    header('Location: ../index.php');       
+                    // header('Location: ../index.php');       
                 }  
+                // $message=$idUser;
                 $data["data"]=[
                     "message"=>$message
                 ];
-                
                 echo json_encode($data);
-
         }  
-        
     // }
         

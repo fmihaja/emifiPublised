@@ -214,10 +214,10 @@
               <h5 class="mb-0">Voulez vous vraiment supprimez votre compte?</h5>
               <!-- <p class="mb-0">You can always change your mind in your account settings.</p> -->
             </div>
-            <div class="modal-footer flex-nowrap p-0">
-              <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end" style="color:red"><strong>Oui, je le veux</strong></button>
+            <form method="post" action="./index.php" class="modal-footer flex-nowrap p-0">
+              <button type="submit" id="btnConfSuppression" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end" style="color:red"><strong>Oui, je le veux</strong></button>
               <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0" data-bs-dismiss="modal">Annuler</button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
