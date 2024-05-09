@@ -104,7 +104,7 @@ $.ajax({
         $(".music").each((index, item)=> {
             $(item).on("click",()=>{
                 $("#titreMusicLecture").text($(item).val());
-                var musicTitre="%20"+$(".music").eq(index).val().replaceAll(" ","%20")+".mp3";
+                var musicTitre=$(".music").eq(index).val().replaceAll(" ","%20")+".mp3";
                 srcValue="./audio/"+musicTitre;
                 // cette tableau me permet de determiner si musicTitre est deja present dans l'url
                 var musicEnLecture=audio.src.split('/');
