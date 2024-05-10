@@ -60,11 +60,20 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><span class="dropdown-item" id="btnModifProfile" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">Modifier profil</span></li>
-                    <li><span class="dropdown-item" id="btnPopUpFeedBack"data-bs-toggle="modal" data-bs-target="#popUpFeedBack">Envoyez un feedback</span></li>
+                    <li><span class="dropdown-item" id="btnPopUpFeedBack" data-bs-toggle="modal" data-bs-target="#popUpFeedBack">Envoyez un feedback</span></li>
                     <li>
                       <hr class="dropdown-divider">
                     </li>
                     <li><span class="dropdown-item" id="btnPopUpSuppression" style="color:red" data-bs-toggle="modal" data-bs-target="#popUpSuppression">Supprimer compte</span></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown listMenu">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Admin
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><label class="dropdown-item" id="" data-bs-toggle="modal" data-bs-target="#popUpEnvoiMusic" for="envoieMusic">Ajouter une nouvelle chansons</label></li>
+                    <li><span class="dropdown-item">Gerer vos BD</span></li>
                   </ul>
                 </li>
               </ul>
@@ -264,6 +273,30 @@
         </div>
       </div>
     </form>
+    <!-- admin  -->
+    <form id="popUpEnvoiMusic" method="post" action="" class="modal fade" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div  class="modal-dialog" role="document">
+          <div class="modal-content rounded-4 shadow">
+            <div class="modal-header border-bottom-0">
+              <h1 class="modal-title fs-5" id="confEnvoieMusic">Voulez-vous ajouter cette chanson?</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-0">
+              <p id="nomFichier" style="text-align: center;">
+              </p>
+              <input type="file" name="envoieMusic" id="envoieMusic" style="display:none">
+            </div>
+            <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+              <button type="button" class="btn btn-lg btn-primary" id="btnAjoutMusic">Ajouter</button>
+              <label class="btn btn-lg btn-primary" for="envoieMusic" id="btnAutreFichier">Choisir une autre fichier</label>
+              <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- input file -->
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery-3.7.1.js"></script>
   <script type="module" src="./js/A_affichageMusic.js"></script>

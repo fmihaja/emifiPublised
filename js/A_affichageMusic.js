@@ -10,7 +10,7 @@ var  interval;
 var nom=$("#nom").val();
 var tel=$("#numeroTel").val();
 $("#mettrePlay").show();
-$("#mettrePause").hide();
+$("#mettrePause,#btnAutreFichier").hide();
 $.ajax({
     type: "get",
     url: "./php/R_chanson.php",
@@ -277,4 +277,16 @@ $("#btnConfSuppression").on("click",function(e){
                 $("#btnConfSuppression").closest('form').submit();
         }
     });
+})
+$("#envoieMusic").on("change",function(){
+    var nomFichier=$("#envoieMusic")[0].files[0].name;
+    var extensionFichier=nomFichier.split(".").pop();
+    $("#nomFichier").text(nomFichier);
+    if (extensionFichier!="mp3"){
+        $("#confEnvoieMusic").text("Veuillez choisir un fichier avec un format mp3");
+        $("#btnAutreFichier").show();
+        $("#btnAjoutMusic").hide();
+    }
+
+
 })
