@@ -278,7 +278,7 @@ $("#btnConfSuppression").on("click",function(e){
         }
     });
 })
-$("#envoieMusic").on("change",function(){
+$("#envoieMusic").on("change",()=>{
     var nomFichier=$("#envoieMusic")[0].files[0].name;
     var extensionFichier=nomFichier.split(".").pop();
     $("#nomFichier").text(nomFichier);
@@ -287,6 +287,41 @@ $("#envoieMusic").on("change",function(){
         $("#btnAutreFichier").show();
         $("#btnAjoutMusic").hide();
     }
-
-
+    else{
+        $("#confEnvoieMusic").text("Voulez-vous ajouter cette chanson ?");
+        $("#btnAutreFichier").hide();
+        $("#btnAjoutMusic").show();
+    }
+})
+$("#btnAjoutMusic").on("click",(e)=>{
+    e.preventDefault();
+    var formData=new FormData();
+    var fichier=$("#envoieMusic")[0].files[0];
+    formData.append("music",fichier);
+    $.ajax({
+        type: "post",
+        url: "./php/R_chanson.php",
+        data: formData,
+        processData: false,
+        contentType: false,
+        dataType: "json",
+        success: function (data) {
+            var msg=data.data.message;
+            alert(msg);
+        }
+    });
+    // $.ajax({
+    //     type: "post",
+    //     url: "./php/R_chanson.php",
+    //     data: formData,
+    //     dataType: "json",
+    //     success: function (data) {
+    //         var msg=data.data.message;
+    //         alert(msg);
+    //     },
+    //     error: function(e){
+    //         alert("erreur de connexion");
+    //         console.log(e.responseText);
+    //     },
+    // });
 })

@@ -274,21 +274,21 @@
       </div>
     </form>
     <!-- admin  -->
-    <form id="popUpEnvoiMusic" method="post" action="" class="modal fade" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
+    <form id="popUpEnvoiMusic" enctype="multipart/form-data" method="post" class="modal fade" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div  class="modal-dialog" role="document">
           <div class="modal-content rounded-4 shadow">
             <div class="modal-header border-bottom-0">
-              <h1 class="modal-title fs-5" id="confEnvoieMusic">Voulez-vous ajouter cette chanson?</h1>
+              <h1 class="modal-title fs-5" id="confEnvoieMusic">Voulez-vous ajouter cette chanson ?</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body py-0">
               <p id="nomFichier" style="text-align: center;">
               </p>
-              <input type="file" name="envoieMusic" id="envoieMusic" style="display:none">
+              <input type="file" name="music" id="envoieMusic" style="display:none">
             </div>
             <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
-              <button type="button" class="btn btn-lg btn-primary" id="btnAjoutMusic">Ajouter</button>
+              <button type="submit" class="btn btn-lg btn-primary" id="btnAjoutMusic">Ajouter</button>
               <label class="btn btn-lg btn-primary" for="envoieMusic" id="btnAutreFichier">Choisir une autre fichier</label>
               <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Annuler</button>
             </div>

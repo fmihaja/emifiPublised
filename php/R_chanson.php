@@ -8,16 +8,16 @@
     switch ($method) {
         case "POST":
             $message="fichier non recu";
-            if(isset($_FILES["music"]) && $_FILES["music"]["error"]===0){
+            if(isset($_FILES["music"]) /*&& $_FILES["music"]["error"]===0*/){
                 if (pathinfo($_FILES["music"]["name"],PATHINFO_EXTENSION)!="mp3")
                     $message="Extension non supporter";
                 else if($_FILES["music"]["size"]>1024*10000)
                     $message="Fichier très volumineux";
                 else{
-                    $newsfilename=dirname(__DIR__)."\audio\ ".pathinfo($_FILES["music"]["name"],PATHINFO_FILENAME).".".pathinfo($_FILES["music"]["name"],PATHINFO_EXTENSION);
-                    $titre=strip_tags(pathinfo($_FILES["music"]["name"],PATHINFO_FILENAME));
+                    $newsfilename=dirname(__DIR__)."/audio/".pathinfo($_FILES["music"]["name"],PATHINFO_FILENAME).".".pathinfo($_FILES["music"]["name"],PATHINFO_EXTENSION);
+                    $titre=trim(strip_tags(pathinfo($_FILES["music"]["name"],PATHINFO_FILENAME)));
                     if(!move_uploaded_file($_FILES["music"]["tmp_name"],$newsfilename))
-                        $message="Upload echouer";
+                        $message="Envoie de fichier echouer";
                     else{
                         // echo json_encode($chanson->verifDoublons($titre));
                         if($chanson->verifDoublons($titre))
