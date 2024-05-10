@@ -293,6 +293,9 @@ $("#envoieMusic").on("change",()=>{
         $("#btnAjoutMusic").show();
     }
 })
+$("#lbEnvoieMusic").on("click",()=>{
+    $("#confEnvoieMusic").text("Voulez-vous ajouter cette chanson ?");
+})
 $("#btnAjoutMusic").on("click",(e)=>{
     e.preventDefault();
     var formData=new FormData();
@@ -305,23 +308,32 @@ $("#btnAjoutMusic").on("click",(e)=>{
         processData: false,
         contentType: false,
         dataType: "json",
+        beforeSend:function(){
+            $("*").css("cursor","progress");
+            $("#btnAjoutMusic").css("opacity","0.5");
+            $("#btnAjoutMusic").prop("disabled",true);
+            
+        },
         success: function (data) {
             var msg=data.data.message;
-            alert(msg);
+            $("*").css("cursor","default");
+            if (msg=="Insertion réussi"){
+                setTimeout(() => {
+                    alert(msg);
+                }, 1);
+                $("#confEnvoieMusic").text("Voulez-vous ajouter une autre chanson?");
+                $("#nomFichier").text("");
+            }
+            else{
+                $("#nomFichier").text("Désolé,"+msg);
+            }
+            $("#btnAutreFichier").show();
+            $("#btnAjoutMusic").hide();
+        },
+        complete:function(){
+            $("*").css("cursor","default");
+            $("#btnAjoutMusic").css("opacity","1");
+            $("#btnAjoutMusic").prop("disabled",false);
         }
     });
-    // $.ajax({
-    //     type: "post",
-    //     url: "./php/R_chanson.php",
-    //     data: formData,
-    //     dataType: "json",
-    //     success: function (data) {
-    //         var msg=data.data.message;
-    //         alert(msg);
-    //     },
-    //     error: function(e){
-    //         alert("erreur de connexion");
-    //         console.log(e.responseText);
-    //     },
-    // });
 })

@@ -67,15 +67,17 @@
                     <li><span class="dropdown-item" id="btnPopUpSuppression" style="color:red" data-bs-toggle="modal" data-bs-target="#popUpSuppression">Supprimer compte</span></li>
                   </ul>
                 </li>
+                <?php if (($_SESSION["user"]["id"])== 180):?>
                 <li class="nav-item dropdown listMenu">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Admin
                   </a>
                   <ul class="dropdown-menu">
-                    <li><label class="dropdown-item" id="" data-bs-toggle="modal" data-bs-target="#popUpEnvoiMusic" for="envoieMusic">Ajouter une nouvelle chansons</label></li>
+                    <li><label class="dropdown-item" id="lbEnvoieMusic" data-bs-toggle="modal" data-bs-target="#popUpEnvoiMusic" for="envoieMusic">Ajouter une nouvelle chansons</label></li>
                     <li><span class="dropdown-item">Gerer vos BD</span></li>
                   </ul>
                 </li>
+                <?php endif;?>
               </ul>
               
             </div>
@@ -285,11 +287,11 @@
             <div class="modal-body py-0">
               <p id="nomFichier" style="text-align: center;">
               </p>
-              <input type="file" name="music" id="envoieMusic" style="display:none">
+              <input type="file" accept="audio/mp3" name="music" id="envoieMusic" style="display:none">
             </div>
             <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
               <button type="submit" class="btn btn-lg btn-primary" id="btnAjoutMusic">Ajouter</button>
-              <label class="btn btn-lg btn-primary" for="envoieMusic" id="btnAutreFichier">Choisir une autre fichier</label>
+              <label class="btn btn-lg btn-primary" for="envoieMusic" id="btnAutreFichier">Choisir une fichier</label>
               <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Annuler</button>
             </div>
           </div>
