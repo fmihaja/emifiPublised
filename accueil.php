@@ -312,14 +312,18 @@
              <div class="bd-example m-0 border-0">
                 <nav>
                   <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#gererMusic" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#gererNotification" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#gererFeedBack" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#gererMusic" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Music</button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#gererNotification" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Notification</button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#gererFeedBack" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">FeedBack</button>
                   </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                   <div class="tab-pane fade show active" id="gererMusic" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                    <input class="list-group-item-check pe-none" type="radio" name="gpMusic" id="audio" value="">
+                    <label class="list-group-item rounded-3 py-3" for="audio">
+                      <input type="text" value="Track 1">
+                      <!-- <span class="d-block small opacity-50">With support text underneath to add more detail</span> -->
+                    </label>
                   </div>
                   <div class="tab-pane fade" id="gererNotification" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
