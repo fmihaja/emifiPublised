@@ -74,7 +74,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><label class="dropdown-item" id="lbEnvoieMusic" data-bs-toggle="modal" data-bs-target="#popUpEnvoiMusic" for="envoieMusic">Ajouter une nouvelle chansons</label></li>
-                    <li><span class="dropdown-item">Gerer vos BD</span></li>
+                    <li><span class="dropdown-item" data-bs-toggle="modal" data-bs-target="#gererBd">Gerer vos BD</span></li>
                   </ul>
                 </li>
                 <?php endif;?>
@@ -299,6 +299,49 @@
       </div>
     </form>
     <!-- affichage gestion Bd -->
+    <div class="modal fade" id="gererBd" tabindex="-1" aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalCenteredScrollableTitle">Gestion de l'application</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- navigation  -->
+            <div class="bd-example-snippet bd-code-snippet">
+             <div class="bd-example m-0 border-0">
+                <nav>
+                  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#gererMusic" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#gererNotification" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#gererFeedBack" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                  </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                  <div class="tab-pane fade show active" id="gererMusic" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                  </div>
+                  <div class="tab-pane fade" id="gererNotification" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                  </div>
+                  <div class="tab-pane fade" id="gererFeedBack" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+            <!-- <p>This is some placeholder content to show the scrolling behavior for modals. We use repeated line breaks to demonstrate how content can exceed minimum inner height, thereby showing inner scrolling. When content becomes longer than the predefined max-height of modal, content will be cropped and scrollable within the modal.</p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p>This content should appear at the bottom after you scroll.</p> -->
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery-3.7.1.js"></script>
   <script type="module" src="./js/A_affichageMusic.js"></script>
