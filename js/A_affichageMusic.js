@@ -71,7 +71,7 @@ $.ajax({
             divColClone.toggle($(".like:eq("+index+")").is(":hidden"));
             $("#affichageMusicAdorer").append(divColClone);
             /*
-                Liste Music
+                Affichage Liste Music
             */
             var rbButton=$("<input>").attr({
                 "type":"radio",
@@ -97,7 +97,9 @@ $.ajax({
             //mametraka btn reaction
             lbGpMusic.append(divColListeTitre,listeLike,listeDislike);
             $("#listeMusic").append(rbButton,lbGpMusic);
-                   
+            /* 
+                Affichage Music admin
+            */       
         });
         //music selectionné
         audio.src="null"

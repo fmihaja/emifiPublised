@@ -298,7 +298,7 @@
         </div>
       </div>
     </form>
-    <!-- input file -->
+    <!-- affichage gestion Bd -->
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery-3.7.1.js"></script>
   <script type="module" src="./js/A_affichageMusic.js"></script>
