@@ -2,6 +2,7 @@ import * as reaction from "./A_reaction.js";
 var icoMusic="./icone/audio.svg";
 var icoLike="./icone/adore.svg";
 var icoDislike="./icone/adore1.svg";
+
 var idChReact=[];
 var audio =new Audio();
 var progressionMusic=$("#progressionMusic");
@@ -99,7 +100,44 @@ $.ajax({
             $("#listeMusic").append(rbButton,lbGpMusic);
             /* 
                 Affichage Music admin
-            */       
+            */
+           //icone
+            var icoModif=$("<i>").addClass("fas fa-pen-square modifMusic");
+            var icoSupp=$("<i>").addClass("far fa-trash-alt suppMusic");
+            var icoConfModif=$("<i>").addClass("far fa-check-circle confModif");
+            var icoAnnulModif=$("<i>").addClass("far fa-times-circle annulerModif");
+            //declaration element
+            var rbAdmin=$("<input>").attr({
+                "type":"radio",
+                "class":"list-group-item-check pe-none rbAdmin",
+                "name":"rbMusicAdmin" ,
+                "id":"audio"+item.id_ch
+            });
+            var lbRbAdmin=$("<label>").attr({
+                "class":"list-group-item rounded-3 py-3",
+                "for":"audio"+item.id_ch
+            });       
+            var containerXl=$("<div>").addClass("container-xl");
+            var row=$("<div>").addClass("row");
+            var colInputMusic=$("<div>").addClass("col-md-9");
+            var inputMusic=$("<input>").attr({
+                "class":"form-control listeMusicAdmin",
+                "value":item.titre
+            });
+            inputMusic.prop("disabled",true);
+            var colModifier=$("<div>").addClass("col-md-1 h3");
+            var colSuppression=$("<div>").addClass("col-md-1 h3");
+            var colOptionModif=$("<div>").addClass("col-md-3 h3");
+            //insertion des elements admin
+            colInputMusic.append(inputMusic);
+            colModifier.append(icoModif);
+            colSuppression.append(icoSupp);
+            colOptionModif.append(icoConfModif,icoAnnulModif);
+            colOptionModif.hide();
+            row.append(colInputMusic,colModifier,colSuppression,colOptionModif);
+            containerXl.append(row);
+            lbRbAdmin.append(containerXl);
+            $("#gererMusic").append(rbAdmin,lbRbAdmin);
         });
         //music selectionné
         audio.src="null"
@@ -280,6 +318,7 @@ $("#btnConfSuppression").on("click",function(e){
         }
     });
 })
+//ajout music
 $("#envoieMusic").on("change",()=>{
     var nomFichier=$("#envoieMusic")[0].files[0].name;
     var extensionFichier=nomFichier.split(".").pop();
@@ -339,3 +378,4 @@ $("#btnAjoutMusic").on("click",(e)=>{
         }
     });
 })
+//charger le fichier notification

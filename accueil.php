@@ -319,11 +319,35 @@
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
                   <div class="tab-pane fade show active" id="gererMusic" role="tabpanel" aria-labelledby="nav-home-tab">
-                    <input class="list-group-item-check pe-none" type="radio" name="gpMusic" id="audio" value="">
-                    <label class="list-group-item rounded-3 py-3" for="audio">
-                      <input type="text" value="Track 1">
+                    <!-- <input class="list-group-item-check pe-none rbAdmin" type="radio" name="rbMusicAdmin" id="audio" value=""> -->
+                    <!-- <label class="list-group-item rounded-3 py-3 conteneurListeMusicAdmin" for="audio"> -->
+                      <!-- <div class="container-xl">
+                        <div class="row">
+                          <div class="col-md-9">
+                              <input type="text" class="form-control listeMusicAdmin" value="Track 1">
+                          </div>
+                          <div class="col-md-1 h3"><i class="fas fa-pen-square"></i></div>
+                          <div class="col-md-1 h3"><i class="far fa-trash-alt"></i></div>
+                        </div>
+                      </div> -->
+                      
                       <!-- <span class="d-block small opacity-50">With support text underneath to add more detail</span> -->
-                    </label>
+                    <!-- </label> -->
+                    <!-- <input class="list-group-item-check pe-none rbAdmin" type="radio" name="rbMusicAdmin" id="audio1" value=""> -->
+                    <!-- <label class="list-group-item rounded-3 py-3" for="audio1"> -->
+                      <!-- <div class="container-xl">
+                        <div class="row">
+                          <div class="col-md-9">
+                              <input type="text" class="form-control listeMusicAdmin" value="Track 1">
+                          </div>
+                          <div class="col-md-1 h3" style="display:none"><i class="fas fa-pen-square"></i></div>
+                          <div class="col-md-1 h3" style="display:none"><i class="far fa-trash-alt"></i></div>
+                          <div class="col-md-3 h3"><i class="far fa-check-circle"></i><i class="far fa-times-circle"></i></div>
+                        </div>
+                      </div> -->
+                      
+                      <!-- <span class="d-block small opacity-50">With support text underneath to add more detail</span> -->
+                    <!-- </label> -->
                   </div>
                   <div class="tab-pane fade" id="gererNotification" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>
@@ -345,6 +369,41 @@
           </div> -->
         </div>
       </div>
+    </div>
+    <!-- theme par defaut light -->
+    <div style="display:none" class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (light)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
     </div>
   <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
   <script src="./js/jquery-3.7.1.js"></script>
