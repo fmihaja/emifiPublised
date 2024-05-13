@@ -114,7 +114,7 @@ $.ajax({
                 "id":"audio"+item.id_ch
             });
             var lbRbAdmin=$("<label>").attr({
-                "class":"list-group-item rounded-3 py-3",
+                "class":"list-group-item rounded-3 py-3 lbRbAdmin",
                 "for":"audio"+item.id_ch
             });       
             var containerXl=$("<div>").addClass("container-xl");
@@ -280,6 +280,11 @@ $.ajax({
                         success: function (data) {
                             var msg=data.data.message;
                             alert(msg);
+                            if (msg=="suppression effectué"){
+                                $(item).hide();
+                                $(".lbRbAdmin").eq(index).hide();
+                                $("[for="+music.attr("id").slice(5)+"]").hide();
+                            }
                         }
                     });
                 }
