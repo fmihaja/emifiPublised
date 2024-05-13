@@ -268,7 +268,21 @@ $.ajax({
             $(item).on("click",()=>{
                 var music=$(".listeMusicAdmin").eq(index);
                 var confirmSuppression=confirm("Voulez vous vraiment supprimez "+music.val().slice(0,20)+" ?");
-
+                if (confirmSuppression){
+                    $.ajax({
+                        type: "delete",
+                        url: "./php/R_chanson.php",
+                        data: JSON.stringify({
+                            idCh:music.attr("id").slice(5),
+                            titre:music.val()
+                        }),
+                        dataType: "json",
+                        success: function (data) {
+                            var msg=data.data.message;
+                            alert(msg);
+                        }
+                    });
+                }
             })
         });
     }
@@ -306,7 +320,12 @@ $("#modificationProfile").on("click",function(e){
         data:"",
         url: "./php/R_user.php",
         // contentType: "application/json",
-        data:JSON.stringify({nom:$("#nom").val(),numeroTel:$("#numeroTel").val(),mdp:$("#mdp").val(),nvMdp:$("#nvMdp").val()}),
+        data:JSON.stringify({
+            nom:$("#nom").val(),
+            numeroTel:$("#numeroTel").val(),
+            mdp:$("#mdp").val(),
+            nvMdp:$("#nvMdp").val()
+        }),
         dataType: "json",
         success: function (data) {
             var msg=data.data.message

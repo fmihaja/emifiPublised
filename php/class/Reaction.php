@@ -25,7 +25,7 @@
             $query->bindValue(":idUser",$idUser,PDO::PARAM_STR);
             return $bd->executeRequete($query);
         }
-        public function delChanson($idCh){
+        public function delReactChanson($idCh){
             $bd=$this->bd;
             $query=$bd->connect()->prepare("DELETE FROM reaction WHERE id_chanson=:idCh");
             $query->bindValue(":idCh",$idCh,PDO::PARAM_STR);

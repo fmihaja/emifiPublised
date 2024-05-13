@@ -79,6 +79,28 @@
 
         break;
         case "DELETE":
-            $recupChanson=file_get_contents("php://input");
+            $reaction=new Reaction();
+            $recupChanson=json_decode(file_get_contents("php://input",true));
+            $idCh=strip_tags($recupChanson->idCh);
+            $titre=strip_tags($recupChanson->titre);
+            $cheminFichier=dirname(__DIR__)."/audio/".$titre.".mp3";
+            $reaction->delReactChanson($idCh);
+            if ($chanson->deleteChanson($idCh)!=1){
+                $message="Erreur de connexion";
+            }
+            else{
+                if (file_exists($cheminFichier)){
+                    if (unlink($cheminFichier))
+                        $message="suppression effectué";
+                    else
+                        $message="Erreur Lors du suppression";
+                }
+                else
+                    $message="Fichier introuvable";
+            }
+            $data["data"]=[
+                "message"=>$message
+            ];
+            echo json_encode($data);
         break;      
     }
