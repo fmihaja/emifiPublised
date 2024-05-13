@@ -60,8 +60,8 @@
             $nvTitre=strip_tags($chansonObtenu["titre"]);
             $idCh=strip_tags($chansonObtenu["id_ch"]);
             $titre=$chanson->selectOne($idCh);
-            $nameFile=dirname(__DIR__)."\audio\ ".$titre["titre"].".mp3";
-            $newFile=dirname(__DIR__)."\audio\ ".$nvTitre.".mp3";
+            $nameFile=dirname(__DIR__)."/audio/".$titre["titre"].".mp3";
+            $newFile=dirname(__DIR__)."/audio/".$nvTitre.".mp3";
             if (file_exists($nameFile)){
                 if(rename($nameFile,$newFile)){
                     if (!$chanson->verifDoublons($nvTitre)){
@@ -77,5 +77,8 @@
                 }
             }
 
+        break;
+        case "DELETE":
+            $recupChanson=file_get_contents("php://input");
         break;      
     }

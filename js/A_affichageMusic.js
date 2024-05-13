@@ -102,7 +102,7 @@ $.ajax({
                 Affichage Music admin
             */
            //icone
-            var icoModif=$("<i>").addClass("fas fa-pen-square modifMusic");
+            var icoModif=$("<i>").addClass("fas fa-pen-square");
             var icoSupp=$("<i>").addClass("far fa-trash-alt suppMusic");
             var icoConfModif=$("<i>").addClass("far fa-check-circle confModif");
             var icoAnnulModif=$("<i>").addClass("far fa-times-circle annulerModif");
@@ -122,12 +122,17 @@ $.ajax({
             var colInputMusic=$("<div>").addClass("col-md-9");
             var inputMusic=$("<input>").attr({
                 "class":"form-control listeMusicAdmin",
-                "value":item.titre
+                "value":item.titre,
+                "id":"input"+item.id_ch
             });
             inputMusic.prop("disabled",true);
-            var colModifier=$("<div>").addClass("col-md-1 h3");
-            var colSuppression=$("<div>").addClass("col-md-1 h3");
-            var colOptionModif=$("<div>").addClass("col-md-3 h3");
+            icoAnnulModif.css("margin-left","5px");
+            var colModifier=$("<label>").attr({
+                "class":"col-md-1 h3 btnModif",
+                "for":"input"+item.id_ch
+            });
+            var colSuppression=$("<div>").addClass("col-md-1 h3 btnSupp");
+            var colOptionModif=$("<div>").addClass("col-md-3 h3 optModif");
             //insertion des elements admin
             colInputMusic.append(inputMusic);
             colModifier.append(icoModif);
@@ -248,6 +253,22 @@ $.ajax({
                     reaction.dislike(id,index);
                 }, 100);
                 // var id=$(".music:checked").attr("id");
+            })
+        });
+        //modif admin
+        $.each($(".btnModif"), (index,item)=> { 
+            $(item).on("click",()=>{
+                $(".listeMusicAdmin").prop("disabled",true);
+                $(".listeMusicAdmin").eq(index).prop("disabled",false);
+                $(".optModif,.btnModif:eq("+index+"),.btnSupp:eq("+index+")").hide();
+                $(".optModif").eq(index).show();
+            })
+        });
+        $.each($(".btnSupp"),(index, item)=> { 
+            $(item).on("click",()=>{
+                var music=$(".listeMusicAdmin").eq(index);
+                var confirmSuppression=confirm("Voulez vous vraiment supprimez "+music.val().slice(0,20)+" ?");
+
             })
         });
     }
