@@ -8,6 +8,7 @@ var audio =new Audio();
 var progressionMusic=$("#progressionMusic");
 var srcValue="";
 var  interval;
+var inputAnnuler;
 var nom=$("#nom").val();
 var tel=$("#numeroTel").val();
 $("#mettrePlay").show();
@@ -258,10 +259,12 @@ $.ajax({
         //modif admin
         $.each($(".btnModif"), (index,item)=> { 
             $(item).on("click",()=>{
+                inputAnnuler=$(".listeMusicAdmin").eq(index).val();
                 $(".listeMusicAdmin").prop("disabled",true);
                 $(".listeMusicAdmin").eq(index).prop("disabled",false);
                 $(".optModif,.btnModif:eq("+index+"),.btnSupp:eq("+index+")").hide();
                 $(".optModif").eq(index).show();
+                $(".rbAdmin").eq(index).prop("checked",true);
             })
         });
         $.each($(".btnSupp"),(index, item)=> { 
@@ -288,6 +291,15 @@ $.ajax({
                         }
                     });
                 }
+            })
+        });
+        
+        $.each($(".annulerModif"), (index, item)=> { 
+            $(item).on("click",()=>{
+                $(".optModif").hide();
+                $(".btnModif:eq("+index+"),.btnSupp:eq("+index+")").show();
+                $(".listeMusicAdmin").eq(index).prop("disabled",true);
+                $(".listeMusicAdmin").val(inputAnnuler);
             })
         });
     }
