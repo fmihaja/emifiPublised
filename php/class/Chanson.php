@@ -41,6 +41,7 @@
             $bd=$this->bd;
             $query=$bd->connect()->prepare("UPDATE chansons SET titre=:titre WHERE id_ch=:id");
             $query->bindValue(":id",$id,PDO::PARAM_STR);
+            $query->bindValue(":titre",$titre,PDO::PARAM_STR);
             return $bd->executeRequete($query);
         }
         public function selectAll(){

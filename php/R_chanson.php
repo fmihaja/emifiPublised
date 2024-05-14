@@ -55,28 +55,34 @@
             echo json_encode($data);
         break;  
         case "PUT":
-            $recupChanson=file_get_contents("php://input");
-            $chansonObtenu=json_decode($recupChanson);
-            $nvTitre=strip_tags($chansonObtenu["titre"]);
-            $idCh=strip_tags($chansonObtenu["id_ch"]);
+            // $recupChanson=;
+            $chansonObtenu=json_decode(file_get_contents("php://input"));
+            $nvTitre=strip_tags($chansonObtenu->titre);
+            $idCh=strip_tags($chansonObtenu->idCh);
             $titre=$chanson->selectOne($idCh);
             $nameFile=dirname(__DIR__)."/audio/".$titre["titre"].".mp3";
             $newFile=dirname(__DIR__)."/audio/".$nvTitre.".mp3";
+            // $message=$nameFile;
             if (file_exists($nameFile)){
-                if(rename($nameFile,$newFile)){
-                    if (!$chanson->verifDoublons($nvTitre)){
-                        if($chanson->updateChanson($idCh,$titre)==1)
+                if(!$chanson->verifDoublons($nvTitre)){
+                    if ($chanson->updateChanson($idCh,$nvTitre)==1){
+                        if(rename($nameFile,$newFile))
                             $message="Mise à jour effectuer";
                     }
                     else{
-                        $message="Titre existant mise à jour non effectuer";
+                        $message="Erreur lors du traitement du donné";
                     }
                 }
                 else{
-                    $message="Fichier introuvable";
+                    $message="Titre existant mise à jour non effectuer";
                 }
             }
-
+            // else
+            //     $message="dossier inexistant";
+            $data["data"]=[
+                "message"=>$message
+            ];
+            echo json_encode($data);
         break;
         case "DELETE":
             $reaction=new Reaction();

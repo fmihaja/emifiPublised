@@ -263,6 +263,7 @@ $.ajax({
                 $(".listeMusicAdmin").prop("disabled",true);
                 $(".listeMusicAdmin").eq(index).prop("disabled",false);
                 $(".optModif,.btnModif:eq("+index+"),.btnSupp:eq("+index+")").hide();
+                $(".confModif").eq(index).show();
                 $(".optModif").eq(index).show();
                 $(".rbAdmin").eq(index).prop("checked",true);
             })
@@ -293,13 +294,34 @@ $.ajax({
                 }
             })
         });
-        
+        $.each($(".listeMusicAdmin"), (index, item)=> { 
+            $(item).on("input",()=>{
+                $(".confModif").eq(index).toggle($(item).val().trim()!="")                    
+            })
+        });
         $.each($(".annulerModif"), (index, item)=> { 
             $(item).on("click",()=>{
                 $(".optModif").hide();
                 $(".btnModif:eq("+index+"),.btnSupp:eq("+index+")").show();
                 $(".listeMusicAdmin").eq(index).prop("disabled",true);
-                $(".listeMusicAdmin").val(inputAnnuler);
+                $(".listeMusicAdmin").eq(index).val(inputAnnuler);
+            })
+        });
+        $.each($(".confModif"), (index, item)=> { 
+            $(item).on("click",()=>{
+                $.ajax({
+                    type: "put",
+                    url: "./php/R_chanson.php",
+                    data: JSON.stringify({
+                        titre:$(".listeMusicAdmin").eq(index).val(),
+                        idCh:$(".listeMusicAdmin").eq(index).attr("id").slice(5)
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+                        var msg=data.data.message;
+                        alert(msg);
+                    }
+                });
             })
         });
     }
@@ -334,7 +356,7 @@ $("#modificationProfile").on("click",function(e){
     e.preventDefault();
     $.ajax({
         type: "put",
-        data:"",
+        // data:"",
         url: "./php/R_user.php",
         // contentType: "application/json",
         data:JSON.stringify({
