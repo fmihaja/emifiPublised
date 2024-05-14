@@ -309,17 +309,21 @@ $.ajax({
         });
         $.each($(".confModif"), (index, item)=> { 
             $(item).on("click",()=>{
+                var music=$(".listeMusicAdmin").eq(index);
                 $.ajax({
                     type: "put",
                     url: "./php/R_chanson.php",
                     data: JSON.stringify({
-                        titre:$(".listeMusicAdmin").eq(index).val(),
-                        idCh:$(".listeMusicAdmin").eq(index).attr("id").slice(5)
+                        titre:music.val(),
+                        idCh:music.attr("id").slice(5)
                     }),
                     dataType: "json",
                     success: function (data) {
                         var msg=data.data.message;
                         alert(msg);
+                        // if (msg=="Mise à jour effectuer"){
+                        //     // $(".lab[for="+music.attr("id").slice(5)+"]").find(".card").find(".card-body").find("h5").text(music.val());
+                        // }
                     }
                 });
             })

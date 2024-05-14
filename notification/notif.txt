@@ -72,3 +72,6 @@ Nouvelle chanson:
 Nouvelle chanson:
 	14-05-2024 17:04:24
 	Infos:Id:94,Titre:Niska_-_Genkidama__Clip_Officiel_(256k).
+Nouvelle chanson:
+	14-05-2024 17:24:28
+	Infos:Id:95,Titre:Osirus_Jack_667_-_Kyrie_Irving__Clip_Officiel_(256k).
