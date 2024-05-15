@@ -462,3 +462,19 @@ $("#btnAjoutMusic").on("click",(e)=>{
     });
 })
 //charger le fichier notification
+$.get("./notification/notif.txt",function (data) {
+    var lignes=data.split(".");
+    lignes.forEach(item => {
+        var contenuNotif=$("<li>").addClass("list-group-item list-group-item-action contenuNotif");
+        contenuNotif.text(item);
+        $("#listeNotif").append(contenuNotif);
+    });
+});
+$.get("./notification/feedBack.txt",function (data) {
+    var lignes=data.split(".");
+    lignes.forEach(item => {
+        var contenuFeedBack=$("<li>").addClass("list-group-item list-group-item-action contenuFeedBack");
+        contenuFeedBack.text(item);
+        $("#listeFeedBack").append(contenuFeedBack);
+    });
+});

@@ -119,3 +119,7 @@
     background-color: rgb(79, 164, 243);
     border-color: rgb(79, 164, 243);
 }
+.contenuFeedBack,.contenuNotif{
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}

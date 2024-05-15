@@ -14,3 +14,7 @@ FeedBack envoyez par:
 FeedBack envoyez le:13-05-2024 18:46:12
 	id:180	nom:admin
 	Message:ok.
+FeedBack envoyez:
+	15-05-2024 19:34:43
+	id:180	nom:adminEmifi
+	Message:Ef mande tsara ny feedBack.
