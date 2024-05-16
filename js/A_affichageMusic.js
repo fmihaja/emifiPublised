@@ -464,17 +464,33 @@ $("#btnAjoutMusic").on("click",(e)=>{
 //charger le fichier notification
 $.get("./notification/notif.txt",function (data) {
     var lignes=data.split(".");
-    lignes.forEach(item => {
+    for (var i=lignes.length-1;i>=0;i--){
         var contenuNotif=$("<li>").addClass("list-group-item list-group-item-action contenuNotif");
-        contenuNotif.text(item);
-        $("#listeNotif").append(contenuNotif);
-    });
+        if (lignes[i].trim()!=""){
+            contenuNotif.text(lignes[i]);
+            $("#listeNotif").append(contenuNotif);
+        }
+    };
+    $("#rechercheNotif").on("input",()=>{
+        var valeur=$("#rechercheNotif").val();
+        $.each(lignes, function (index, item) { 
+             var contenuLignes=item.split(":");
+             var infos=contenuLignes[5];
+            //  var id=infos[2].split(",")
+             console.log(infos);
+             $.each($(".contenuNotif"), function (index, item) { 
+                 var listeNotif=$(item).text();
+             });
+        });
+    })
 });
 $.get("./notification/feedBack.txt",function (data) {
     var lignes=data.split(".");
-    lignes.forEach(item => {
+    for (var i=lignes.length-1;i>=0;i--){
         var contenuFeedBack=$("<li>").addClass("list-group-item list-group-item-action contenuFeedBack");
-        contenuFeedBack.text(item);
-        $("#listeFeedBack").append(contenuFeedBack);
-    });
+        if (lignes[i].trim()!=""){
+            contenuFeedBack.text(lignes[i]);
+            $("#listeFeedBack").append(contenuFeedBack);    
+        }
+    };
 });

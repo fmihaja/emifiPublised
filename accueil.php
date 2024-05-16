@@ -351,13 +351,16 @@
                   </div>
                   <div class="tab-pane fade" id="gererNotification" role="tabpanel" aria-labelledby="nav-profile-tab">
                       <!-- ato ny notif -->
-                      <div class="list-group" id="listeNotif">
-                        <!-- <li href="#" class="list-group-item list-group-item-action contenuNotif">A simple default list group item</li> -->
-                      </div>
+                    <form class="col-md-8" role="search">
+                      <input type="search" class="form-control" id="rechercheNotif" placeholder="Search..." aria-label="Search">
+                    </form>
+                    <div class="list-group" id="listeNotif">
+                      <!-- <li href="#" class="list-group-item list-group-item-action contenuNotif">A simple default list group item</li> -->
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="gererFeedBack" role="tabpanel" aria-labelledby="nav-contact-tab">
                       <div class="list-group" id="listeFeedBack">
-                        <!-- <li href="#" class="list-group-item list-group-item-action contenuNotif">A simple default list group item</li> -->
+                        <!-- feedBack -->
                       </div>
                   </div>
                 </div>

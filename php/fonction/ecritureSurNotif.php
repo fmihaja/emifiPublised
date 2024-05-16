@@ -19,10 +19,10 @@
         $target=($idUser==0)? "chanson":"compte";
         switch($typeNotif){
             case "insert":
-                $action="\nNouvelle ".$target.":\n\t";
+                $action="Nouvelle ".$target.":\n\t";
             break;
             case "delete":
-                $action="\nSuppresion de ".$target.":\n\t";
+                $action="Suppresion de ".$target.":\n\t";
             break;
         }
         $file=fopen("../notification/notif.txt","a+");

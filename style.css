@@ -121,5 +121,6 @@
 }
 .contenuFeedBack,.contenuNotif{
     overflow-wrap: break-word;
-    white-space: pre-wrap;
+    white-space: pre-line;
+    /* word-break: break-word; */
 }
