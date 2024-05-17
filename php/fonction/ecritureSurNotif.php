@@ -1,6 +1,7 @@
 <?php
     function ecritureNotifReact($typeNotif,$idUser,$idCh){
         $date=date("d-m-Y H:i:s");
+        $nom=$_SESSION["user"]["nom"];
         switch($typeNotif){
             case "like":
                 $action=" aime chanson numero";
@@ -10,7 +11,7 @@
             break;
         }
         $file=fopen("../notification/notif.txt","a+");
-        $notif="\nAjout Reaction:\n\tDate:".$date."\n\t".$idUser.$action.$idCh.".";
+        $notif="Ajout Reaction:\n\t".$date."\n\tInfos:id:".$idUser." Nom:".$nom." ".$action.$idCh.".";
         fwrite($file,$notif);
         fclose($file);
     }

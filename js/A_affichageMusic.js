@@ -472,15 +472,13 @@ $.get("./notification/notif.txt",function (data) {
         }
     };
     $("#rechercheNotif").on("input",()=>{
-        var valeur=$("#rechercheNotif").val();
+        var valeur=$("#rechercheNotif").val().toUpperCase();
         $.each(lignes, function (index, item) { 
-             var contenuLignes=item.split(":");
-             var infos=contenuLignes[5];
-            //  var id=infos[2].split(",")
-             console.log(infos);
              $.each($(".contenuNotif"), function (index, item) { 
-                 var listeNotif=$(item).text();
-             });
+                var contenuTexte=$(item).text().split(":");
+                var textNotif=String(contenuTexte[6]).toUpperCase();
+                $(item).toggle(valeur==textNotif.slice(0,valeur.length));
+            });
         });
     })
 });
